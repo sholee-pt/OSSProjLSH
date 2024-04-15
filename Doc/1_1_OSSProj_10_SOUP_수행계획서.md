@@ -36,6 +36,7 @@
     * https://patents.google.com/patent/KR102438204B1/ko  
 * 학교 내 도로의 경사도는 다음과 같다.  
     * https://data.seoul.go.kr/dataList/OA-22241/F/1/datasetView.do  
+* 네이버 지도의 경우 도보를 이용하는 경우 계단을 회피하는 경로를 안내하는 기능이 있다.
 
 
 ### 2.3 목표 및 내용  
@@ -63,7 +64,11 @@
 
 #### (5) 개발 환경  
 
-* VS Code를 이용한 JAVA  
+* VS Code를 이용한 JAVA 
+* Docker
+* AWS - 배포
+* Notion - 협업 및 일정 관리
+
 
 ### 2.4  기대효과  
 
