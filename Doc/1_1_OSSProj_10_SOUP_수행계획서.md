@@ -63,7 +63,7 @@
 
 #### (5) 개발 환경  
 
-* backend: VS Code를 이용한 JAVA 및 javascript
+* backend: VS Code를 이용한 Java, Javascript, Node.js, Spring
 * frontend: HTML
 * Docker
 * AWS - 배포
