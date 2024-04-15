@@ -64,7 +64,8 @@
 
 #### (5) 개발 환경  
 
-* VS Code를 이용한 JAVA 
+* bakcend: VS Code를 이용한 JAVA 
+* frontend: HTML
 * Docker
 * AWS - 배포
 * Notion - 협업 및 일정 관리
