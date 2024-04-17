@@ -76,9 +76,7 @@
 * 실시간 교내에서 발생하는 이벤트(e.g. 엘레베이터 점검, 공사, 축제 등)를 자동적으로 실시간 반영하기 어려움  
 
 #### (5) 개발 환경  
-
-* backend: VS Code를 이용한 Java, Node.js, Spring  
-* frontend: Javascript  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/dev_environment.png">
 
 ### 2.4  기대효과  
 
