@@ -51,7 +51,7 @@
      * 동국대학교 휠체어 네비게이션 웹페이지  
 
 * 최종설계 결과물 시스템 구성과 기능 및 특징
-     * 유스케이스 다이어그램
+     * 유스케이스 다이어그램(Usecase Diagram)
      <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase.png">
      * 사용자 인터페이스(UI)  
          * 사용자가 웹페이지를 통해 지도를 나타낸다.  
