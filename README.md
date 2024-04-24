@@ -20,7 +20,7 @@
 기존 프로젝트: [동국대학교 편한 길 찾기](https://github.com/CSID-DGU/2023-2-OSSP1-Entity-5)  
 
 ### 설치 방법  
-1. Node.js 설치
+1. Node.js [설치](https://nodejs.org/en/download)
 2. CMD에서 'npm install npx -g'
 3. npm update
 4. frontend 폴더 들어가서 'npm start'
