@@ -61,7 +61,7 @@
         * 휠체어 네비게이션 기능: 기존 네비게이션과 달리 계단이나 높은 경사도를 피하도록 해준다.  
 
 * 유스케이스 다이어그램(Usecase Diagram)  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase.png">  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_diagram.jpg">  
 
 * 전체 시스템 구성  
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/tools.png">  
