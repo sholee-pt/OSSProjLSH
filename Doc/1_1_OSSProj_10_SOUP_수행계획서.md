@@ -69,7 +69,7 @@
 * 걷기 열량 계산 vs. 휠체어 이용자 열량 계산  
   : 일반인의 걷기 열량은 1.67 x (속도) + 0.15 x (경사도) x (속도) + 3.5 (ml/kg)을 기반으로 구할 수 있다. 하지만 휠체어 이용자들은 이러한 열량 계산 방식에 준하지 않으므로 {(0.8806 * V + 1.4366) * 1.24} * 2.7 * W * t *5kcal / 1000로 재설정하였다. 여기서 V: 휠체어 주행 속도, W: 몸무게, t: 주행 시간을 의미하고 이는 상행 대수량 지수를 기준으로 하였으며 하행 시 1.24 -> 0.91로 수정한다.  
 
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/archtecture.JPG">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/architecture.JPG">
 
 #### (4) 설계의 현실적 제한요소(제약조건)  
 
@@ -78,7 +78,7 @@
 * 실시간 교내에서 발생하는 이벤트(e.g. 엘레베이터 점검, 공사, 축제 등)를 자동적으로 실시간 반영하기 어려움  
 
 #### (5) 개발 환경  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/dev_environment.png">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/environment.png">
 
 ### 2.4  기대효과  
 

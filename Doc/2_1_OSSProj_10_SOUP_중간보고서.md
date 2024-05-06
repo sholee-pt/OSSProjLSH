@@ -69,8 +69,8 @@
 * 블록 다이어그램(Block Diagram)
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block.jpg">
 
-* 전체 시스템 구성  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/tools.png">  
+* 시퀀스 다이어그램(Sequence Diagram) 
+추가 예정
            
 #### (3) 대안 도출 및 구현 계획  
 
@@ -92,7 +92,7 @@
 
 #### (5) 개발 환경  
 
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/dev_environment.png">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/environment.png">
 
 ### 2.4  기대효과  
 
