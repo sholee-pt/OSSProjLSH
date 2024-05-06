@@ -50,10 +50,10 @@
 #### (2) 개발 내용  
 
 * 동국대학교 구조도
-<img width="550" alt="image" src="">
-3
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph.png">
+
 * 최종설계 결과물 형태  
-     * 동국대학교 휠체어 네비게이션 웹페이지  
+    * 동국대학교 휠체어 네비게이션 웹페이지  
 
 * 최종설계 결과물 시스템 구성과 기능 및 특징  
     * 사용자 인터페이스(UI)  
