@@ -113,6 +113,7 @@ P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중�
 ### 2.6 참고문헌  
 
 1. 공공데이터포털, 서울시 경사도, https://data.seoul.go.kr/dataList/OA-22241/F/1/datasetView.do, 2023.12.26  
+2. Dafne Zuleima Morgado Ramirez 외 7명, Adjusted method to calculate an electric wheelchair power cycle: fuel cell implementation example, Journal of Energy Storage 23 (2019) p.371-380
 
 ### 2.7 성과창출 계획  
 
