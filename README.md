@@ -26,15 +26,15 @@
 
 ### 설치 방법  
 1. Node.js [설치](https://nodejs.org/en/download)  
-2. Command Prompt(CMD)에서
-'''
+2. Command Prompt(CMD)에 다음 명령어를 입력하여 컴퓨터 내에 npx 설치
+```
 npm install npx -g
-''' 
-3. CMD로 상기 코드의 /Src/frontend 경로로 들어가서
-'''
+```
+3. 상기 코드를 clone받은 폴더 내의 /Src/frontend 경로로 들어가서
+```
 npm update
 npm start
-'''
+```
 
 ### 사용 방법  
 길찾기 페이지에서 사용할 모드를 선택한다.  
