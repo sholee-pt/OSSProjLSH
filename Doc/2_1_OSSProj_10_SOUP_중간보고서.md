@@ -51,6 +51,7 @@
 
 * 동국대학교 구조도
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph.png">
+P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중앙도서관, E: 신공학관 W: 원흥관
 
 * 최종설계 결과물 형태  
     * 동국대학교 휠체어 네비게이션 웹페이지  
@@ -69,8 +70,8 @@
 * 블록 다이어그램(Block Diagram)
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block.jpg">
 
-* 전체 시스템 구성  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/tools.png">  
+* 시퀀스 다이어그램(Sequence Diagram) 
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/sequence.jpg">
            
 #### (3) 대안 도출 및 구현 계획  
 
@@ -92,7 +93,7 @@
 
 #### (5) 개발 환경  
 
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/dev_environment.png">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/environment.png">
 
 ### 2.4  기대효과  
 

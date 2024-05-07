@@ -20,22 +20,27 @@
 기존 프로젝트: [동국대학교 편한 길 찾기](https://github.com/CSID-DGU/2023-2-OSSP1-Entity-5)  
 
 ### Tech Stack
-<img src="https://img.shields.io/badge/Intellij-000000?style=flat-square&logo=intellijidea&logoColor=white"/>
-<img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>  
+<img src="https://img.shields.io/badge/Intellij-000000?style=flat-square&logo=intellijidea&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
 
-<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/>
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-<img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/>
-
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/>
 
 ### 설치 방법  
 1. Node.js [설치](https://nodejs.org/en/download)  
-2. CMD에서 'npm install npx -g'  
-3. npm update  
-4. frontend 폴더 들어가서 'npm start'  
+2. Command Prompt(CMD)에 다음 명령어를 입력하여 컴퓨터 내에 npx 설치
+```
+npm install npx -g
+```
+3. 상기 코드를 clone받은 폴더 내의 /Src/frontend 경로로 이동
+```
+cd /Src/frontend
+```
+4. 순차적으로 명령어를 입력하여 React 웹 페이지 실행
+```
+npm update
+```
+```
+npm start
+```
 
 ### 사용 방법  
 길찾기 페이지에서 사용할 모드를 선택한다.  
