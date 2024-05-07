@@ -71,7 +71,7 @@ P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중�
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block.jpg">
 
 * 시퀀스 다이어그램(Sequence Diagram) 
-추가 예정
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/sequence.jpg">
            
 #### (3) 대안 도출 및 구현 계획  
 
