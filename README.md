@@ -26,9 +26,15 @@
 
 ### 설치 방법  
 1. Node.js [설치](https://nodejs.org/en/download)  
-2. CMD에서 'npm install npx -g'  
-3. npm update  
-4. frontend 폴더 들어가서 'npm start'  
+2. Command Prompt(CMD)에서
+'''
+npm install npx -g
+''' 
+3. CMD로 상기 코드의 /Src/frontend 경로로 들어가서
+'''
+npm update
+npm start
+'''
 
 ### 사용 방법  
 길찾기 페이지에서 사용할 모드를 선택한다.  
