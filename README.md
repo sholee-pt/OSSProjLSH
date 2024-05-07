@@ -30,9 +30,15 @@
 ```
 npm install npx -g
 ```
-3. 상기 코드를 clone받은 폴더 내의 /Src/frontend 경로로 들어가서
+3. 상기 코드를 clone받은 폴더 내의 /Src/frontend 경로로 이동
+```
+cd /Src/frontend
+```
+4. 순차적으로 명령어를 입력하여 React 웹 페이지 실행
 ```
 npm update
+```
+```
 npm start
 ```
 
