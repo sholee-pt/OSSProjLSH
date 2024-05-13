@@ -30,7 +30,7 @@
 3. [제품의 구성, 배포 및 운영 관련 문서 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_3_OSSProj_10_SOUP_%EC%A0%9C%ED%92%88%EA%B5%AC%EC%84%B1%EB%B0%B0%ED%8F%AC%EC%9A%B4%EC%98%81%EC%9E%90%EB%A3%8C.md)
 
 ### 설치 방법  
-1. Node.js [설치](https://nodejs.org/en/download)  
+1. Node.js [설치](https://nodejs.org/en/download/current/)  
 2. Command Prompt(CMD)에 다음 명령어를 입력하여 컴퓨터 내에 npx 설치
 ```
 npm install npx -g
