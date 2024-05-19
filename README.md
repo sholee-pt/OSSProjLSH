@@ -25,9 +25,12 @@
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/>
 
 ### 프로젝트 관리문서
-1. [범위/일정 및 이슈 관리](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_1_OSSProj_10_SOUP_%EB%B2%94%EC%9C%84_%EC%9D%BC%EC%A0%95_%EC%9D%B4%EC%8A%88%EA%B4%80%EB%A6%AC.md)
-2. [회의록](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_2_OSSProj_10_SOUP_%ED%9A%8C%EC%9D%98%EB%A1%9D.md)
-3. [제품의 구성, 배포 및 운영 관련 문서 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_3_OSSProj_10_SOUP_%EC%A0%9C%ED%92%88%EA%B5%AC%EC%84%B1%EB%B0%B0%ED%8F%AC%EC%9A%B4%EC%98%81%EC%9E%90%EB%A3%8C.md)
+1. [수행계획서](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_1_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EC%84%9C.md)
+2. [중간보고서](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/2_1_OSSProj_10_SOUP_%EC%A4%91%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C.md)
+3. [최종보고서](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/3_1_OSSProj_10_SOUP_%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C.md)
+4. [범위/일정 및 이슈 관리](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_1_OSSProj_10_SOUP_%EB%B2%94%EC%9C%84_%EC%9D%BC%EC%A0%95_%EC%9D%B4%EC%8A%88%EA%B4%80%EB%A6%AC.md)
+5. [회의록](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_2_OSSProj_10_SOUP_%ED%9A%8C%EC%9D%98%EB%A1%9D.md)
+6. [제품의 구성, 배포 및 운영 관련 문서 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_3_OSSProj_10_SOUP_%EC%A0%9C%ED%92%88%EA%B5%AC%EC%84%B1%EB%B0%B0%ED%8F%AC%EC%9A%B4%EC%98%81%EC%9E%90%EB%A3%8C.md)
 
 ### 설치 방법  
 1. Node.js [설치](https://nodejs.org/en/download/current/)  

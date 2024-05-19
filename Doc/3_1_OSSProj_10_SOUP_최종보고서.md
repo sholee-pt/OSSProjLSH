@@ -68,7 +68,7 @@
 
 * Guthub 등록 / SW 등록 / 논문 / 특허 등 성과를 구체적으로 기재  
 
-### 7. 첨부  
+### 8. 첨부  
 
 1. OSS 프로젝트 결과보고서 (요약)  
     * 별도 제공된 양식에 작성 후 제출(pdf 형식)  
@@ -79,3 +79,5 @@
 4. 작품설명용 사진 1~2장  
     * jpg파일 별도 제출(파일명: eg. Tnn_팀명_4_개념설계.jpg)  
 
+### README.md로 돌아가기
+[README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)
