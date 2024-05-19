@@ -38,3 +38,6 @@ npm start
 출발지와 도착지를 선택한 뒤 '경로찾기' 버튼을 누른다.  
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/UI2.png">
 
+
+### README.md로 돌아가기
+[README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)
