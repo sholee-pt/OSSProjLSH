@@ -51,7 +51,7 @@
 #### (2) 개발 내용  
 
 * 동국대학교 구조도
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph.png">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph_midreport.png">
 P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중앙도서관, E: 신공학관 W: 원흥관 / 알파벳 뒤 숫자는 층수를 의미  
 
 * 최종설계 결과물 형태  
