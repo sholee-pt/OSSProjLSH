@@ -15,6 +15,9 @@
 ### 프로젝트 제목  
 휠체어도 사용 가능한 동국대학교 편한 길 찾기  
 
+### 프로젝트 목표
+
+
 ### 프로젝트 내용
 기존의 '동국대학교 편한 길찾기' 프로젝트에서 사용자가 가장 열량을 덜 소비하는 방법으로 학교 내 길찾기를 해 주었다. 기존의 방식에서는 열량 소비량을 최소화하기 위해 학교 곳곳에 있는 계단과 지름길를 사용하였다. 이번 프로젝트에서는 휠체어 사용자들이 이 프로그램을 사용할 수 있도록 계단과 높은 경사도가 있는 경로를 피할 수 있도록 새로운 방법을 추가했고 동국대학교의 전체 구성도를 포함하였다.  
 기존 프로젝트: [동국대학교 편한 길 찾기](https://github.com/CSID-DGU/2023-2-OSSP1-Entity-5)  
@@ -31,6 +34,11 @@
 4. [범위/일정 및 이슈 관리](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_1_OSSProj_10_SOUP_%EB%B2%94%EC%9C%84_%EC%9D%BC%EC%A0%95_%EC%9D%B4%EC%8A%88%EA%B4%80%EB%A6%AC.md)
 5. [회의록](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_2_OSSProj_10_SOUP_%ED%9A%8C%EC%9D%98%EB%A1%9D.md)
 6. [제품의 구성, 배포 및 운영 관련 문서 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_3_OSSProj_10_SOUP_%EC%A0%9C%ED%92%88%EA%B5%AC%EC%84%B1%EB%B0%B0%ED%8F%AC%EC%9A%B4%EC%98%81%EC%9E%90%EB%A3%8C.md)
+
+#### 참고 pdf 파일
+1. [수행계획발표 pdf 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)  
+2. [중간발표 pdf 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)  
+3. 최종발표 pdf 자료
 
 ### 설치 방법  
 1. Node.js [설치](https://nodejs.org/en/download/current/)  
