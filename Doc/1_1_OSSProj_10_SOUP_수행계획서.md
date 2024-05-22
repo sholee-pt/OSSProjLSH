@@ -110,5 +110,5 @@ SW등록 |        |
 특허출원 |        |      
 시제품 |        |  
 
-### README.md로 돌아가기
+## README.md로 돌아가기
 [README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)

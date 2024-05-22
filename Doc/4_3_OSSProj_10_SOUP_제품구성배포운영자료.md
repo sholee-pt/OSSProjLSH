@@ -15,6 +15,7 @@
 
 ## 3. 프로젝트 제품 운영 방법  
 
+### 설치 방법
 1. Node.js [설치](https://nodejs.org/en/download)  
 2. Command Prompt(CMD)에 다음 명령어를 입력하여 컴퓨터 내에 npx 설치
 ```
@@ -32,6 +33,7 @@ npm update
 npm start
 ```
 
+### 사용 방법 
 길찾기 페이지에서 사용할 모드를 선택한다.  
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/UI1.png">  
 
@@ -39,5 +41,5 @@ npm start
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/UI2.png">
 
 
-### README.md로 돌아가기
+## README.md로 돌아가기
 [README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)

@@ -66,10 +66,10 @@ P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중�
         * 휠체어 네비게이션 기능: 기존 네비게이션과 달리 계단이나 높은 경사도를 피하도록 해준다.  
 
 * 유스케이스 다이어그램(Usecase Diagram)  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase.jpg">  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_midreport.jpg">  
 
 * 블록 다이어그램(Block Diagram)
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block.jpg">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block_midreport.jpg">
 
 * 시퀀스 다이어그램(Sequence Diagram) 
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/sequence.jpg">
@@ -83,7 +83,6 @@ P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중�
     * M = mass, g = gravity, f = rolling resistent coefficient, α = slope(%), V = speed, η = efficiency of motor, L = length
 * 기존의 2d 길찾기 vs 공간 정보를 활용한 길찾기
   : 기존의 길찾기에서는 특정 지점에서 다른 지점으로의 경로는 계산하지만 높이는 고려하지 않는다. 동국대학교 휠체어 네비게이션은 동국대학교의 건물들의 입구가 하나가 아닌 여러 층에 있다. 따라서 건물으로의 도착만이 아닌 건물 내의 특정 공간으로의 이동을 목적으로 하기 때문에 층수와 입구 또한 고려해야한다. 따라서 기존의 네비게이션과는 달리 공간적 데이터를 이용하는 방법으로 네비게이션을 구현하였다. 다만 이 과정에서 동국대학교 전체에 대한 공간데이터를 구축하려면 많은 시간이 걸리기 때문에 일단 작은 범위를 설정하여 정상적으로 작동하는 것을 목표로 한다.
-
 
 #### (4) 설계의 현실적 제한요소(제약조건)  
 
@@ -127,5 +126,5 @@ SW등록 |        |
 시제품 |        |  
 
 
-### README.md로 돌아가기
+## README.md로 돌아가기
 [README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)
