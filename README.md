@@ -16,11 +16,36 @@
 휠체어도 사용 가능한 동국대학교 편한 길 찾기  
 
 ### 프로젝트 목표
+동국대학교 서울캠퍼스는 남산자락에 위치하여 상당한 언덕과 건물간의 고저차가 존재하여 신입생 혹은 외부인, 해당 건물에 처음 가는 사람의 경우 최적화된 경로를 알기 어렵다. 따라서 전동 휠체어 사용자을 위해 계단과 높은 경사도가 있는 길을 사용하지 않는 경로를 소개하는 프로그램을 개발하고 동국대학교의 구성도를 제공하고자 한다.  
 
-
-### 프로젝트 내용
-기존의 '동국대학교 편한 길찾기' 프로젝트에서 사용자가 가장 열량을 덜 소비하는 방법으로 학교 내 길찾기를 해 주었다. 기존의 방식에서는 열량 소비량을 최소화하기 위해 학교 곳곳에 있는 계단과 지름길를 사용하였다. 이번 프로젝트에서는 휠체어 사용자들이 이 프로그램을 사용할 수 있도록 계단과 높은 경사도가 있는 경로를 피할 수 있도록 새로운 방법을 추가했고 동국대학교의 전체 구성도를 포함하였다.  
 기존 프로젝트: [동국대학교 편한 길 찾기](https://github.com/CSID-DGU/2023-2-OSSP1-Entity-5)  
+
+### 최종 결과물
+ *최종 사진 추가 예정*
+
+### 프로젝트 설계/구현 내용
+* 계단과 높은 경사가 있는 길을 제외하고 전력소비량을 최소화하는 휠체어용 네비게이션 기능을 추가  
+* 휠체어용 네비게이션으로 다익스트라 알고리즘을 활용  
+* 동국대학교 충무로 방향 건물들에 대한 전체 구조도 작성  
+
+* 유스케이스 다이어그램(Usecase Diagram)  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_midreport.jpg">  
+
+* 블록 다이어그램(Block Diagram)
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block_midreport.jpg">  
+
+* 시퀀스 다이어그램(Sequence Diagram) 
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/sequence.jpg">  
+
+### 주요 기대 효과
+* 전력 기반 경로 최적화  
+* 이동 편의성 증대   
+* 접근성 개선  
+* 사회적 포용성 강화  
+
+### 프로그램 요구사항 및 실행 방법
+
+[제품의 구성, 배포 및 운영 관련 문서 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_3_OSSProj_10_SOUP_%EC%A0%9C%ED%92%88%EA%B5%AC%EC%84%B1%EB%B0%B0%ED%8F%AC%EC%9A%B4%EC%98%81%EC%9E%90%EB%A3%8C.md)
 
 ### Tech Stack
 <img src="https://img.shields.io/badge/Intellij-000000?style=flat-square&logo=intellijidea&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
@@ -38,29 +63,4 @@
 #### 참고 pdf 파일
 1. [수행계획발표 pdf 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)  
 2. [중간발표 pdf 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)  
-3. 최종발표 pdf 자료
-
-### 설치 방법  
-1. Node.js [설치](https://nodejs.org/en/download/current/)  
-2. Command Prompt(CMD)에 다음 명령어를 입력하여 컴퓨터 내에 npx 설치
-```
-npm install npx -g
-```
-3. 상기 코드를 clone받은 폴더 내의 /Src/frontend 경로로 이동
-```
-cd /Src/frontend
-```
-4. 순차적으로 명령어를 입력하여 React 웹 페이지 실행
-```
-npm update
-```
-```
-npm start
-```
-
-### 사용 방법  
-길찾기 페이지에서 사용할 모드를 선택한다.  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/UI1.png">  
-
-출발지와 도착지를 선택한 뒤 '경로찾기' 버튼을 누른다.  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/UI2.png">
+3. 최종발표 pdf 자료  

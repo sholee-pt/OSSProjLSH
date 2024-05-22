@@ -79,5 +79,5 @@
 4. 작품설명용 사진 1~2장  
     * jpg파일 별도 제출(파일명: eg. Tnn_팀명_4_개념설계.jpg)  
 
-### README.md로 돌아가기
+## README.md로 돌아가기
 [README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)
