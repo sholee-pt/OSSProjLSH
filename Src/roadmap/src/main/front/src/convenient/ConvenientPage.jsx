@@ -38,7 +38,7 @@ function ConvenientPage() {
 
         const script = document.createElement("script");
         script.async = true;
-        script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=4df16387a395762838f3f668c6731805&autoload=false';
+        script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=d4309b74d8b2fd437e9f76d9b2e75dad&autoload=false';
 
 
         script.onload = () => {
