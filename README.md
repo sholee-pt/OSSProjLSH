@@ -62,5 +62,5 @@
 
 #### 참고 pdf 파일
 1. [수행계획발표 pdf 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)  
-2. [중간발표 pdf 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)  
+2. [중간발표 pdf 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/2_3_OSSProj_10_SOUP_%EC%A4%91%EA%B0%84%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)  
 3. 최종발표 pdf 자료  
