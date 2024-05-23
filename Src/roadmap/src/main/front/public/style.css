@@ -27,23 +27,7 @@ img{
 .navbar img{
     transform: translate(0,10%);
 }
-a {
-    font-family: 'neon';
-    text-decoration: none;
-    color: rgb(131,120,111);
-    font-size: 1rem;
-}
 
-a:hover {
-    color: coral;
-}
-
-p{
-    font-family: 'neon';
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
-}
 /* Header */
 header {
     position: relative;
@@ -324,6 +308,64 @@ select option [value = ""][disabled]{
     }
 }
 
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 부모 요소를 화면 전체 높이로 설정 */
+    transform: translateY(-20%); /* 약간 위로 이동 */
+  }
+  
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(255, 255, 255, 0.5); /* 상자 배경색 */
+    padding: 2rem; /* 패딩 */
+    border-radius: 10px; /* 테두리 둥글게 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  }
+  
+.centered-content h1,
+.centered-content h2,
+.centered-content p {
+  margin: 1rem 0; /* 텍스트들 간의 위아래 간격 조정 */
+}
+
+a {
+    font-family: 'neon';
+    text-decoration: none;
+    color: rgb(131,120,111);
+    font-size: 1rem;
+}
+
+a:hover {
+    color: coral;
+}
+
+t1 {
+    font-family: 'neon';
+    font-weight: bold;
+    font-size: 2rem;
+    color: rgb(255, 153, 0);
+}
+
+t2 {
+    font-family: 'neon';
+    font-weight: bold;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+p{
+    font-family: 'neon';
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+  
 /*모바일 메뉴*/
 .dropdown_menu {
     z-index: 999;
