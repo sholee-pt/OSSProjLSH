@@ -143,9 +143,7 @@ section#hero {
 select option [value = ""][disabled]{
     display : none;
 }
-.controller-wrapper{
 
-}
 .button-style {
     margin : 1vh;
     background-color: rgb(137, 124, 117);
