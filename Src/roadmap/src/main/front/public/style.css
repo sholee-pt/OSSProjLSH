@@ -355,6 +355,10 @@ select option [value = ""][disabled]{
     font-size: 1.2rem;
 }
 
+.email-link:hover {
+    color: rgba(98, 0, 255, 0.644);
+}
+
 a {
     font-family: 'neon';
     text-decoration: none;
@@ -409,10 +413,11 @@ p {
     align-items: center;
     justify-content: center;
 }
-.dropdown_menu li a{
-    font-size:.7em;
+
+.dropdown_menu li a {
+    font-size: 1rem;
 }
 
 .dropdown_menu.open {
-    height: 100px;
+    height: 115px;
 }
