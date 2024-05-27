@@ -29,7 +29,7 @@
 * 동국대학교 충무로 방향 건물들에 대한 전체 구조도 작성  
 
 * 유스케이스 다이어그램(Usecase Diagram)  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_midreport.jpg">  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_finalreport.jpg">  
 
 * 블록 다이어그램(Block Diagram)
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block_midreport.jpg">  
