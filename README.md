@@ -9,7 +9,7 @@
 ------|-------|-------|-------|-------
 팀장 | 권일준 | 통계학과 | 융합SW연계전공 | jonkwon99@dongguk.edu         
 팀원 | 김명하 | 산업시스템공학과 | 융합SW연계전공 | kk313s@dongguk.edu        
-팀원 | 이승호 | 생명과학과 | 융합SW연계전공 | sholeept@dgu.ac.kr    
+팀원 | 이승호 | 생명과학과 | 융합SW연계전공 | sholeept@dongguk.edu   
 
 ## 종합 정보  
 ### 프로젝트 제목  
