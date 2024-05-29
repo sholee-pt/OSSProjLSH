@@ -334,19 +334,18 @@ select option [value = ""][disabled]{
     margin: 1rem 0;
 }
 
-.footer {
+.banner {
     font-family: 'neon';
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
     padding: 1.5rem;
-    background-color: rgba(255, 115, 0);
     position: fixed;
     width: 100%;
     bottom: 0;
 }
 
-.email-link {
+.github-link {
     color: rgb(0, 0, 255);
     text-decoration: none;
     cursor: pointer;
@@ -355,7 +354,7 @@ select option [value = ""][disabled]{
     font-size: 1.2rem;
 }
 
-.email-link:hover {
+.github-link:hover {
     color: rgba(98, 0, 255, 0.644);
 }
 
@@ -374,14 +373,19 @@ h1 {
     font-family: 'neon';
     font-weight: bold;
     font-size: 2rem;
-    color: #2196F3;
+    color: black;
+    line-height: 2;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1.5px #ff9500;
+    -webkit-text-fill-color: black;
+    -webkit-font-smoothing: subpixel-antialiased;
+    transition: color 0.3s ease, -webkit-text-fill-color 0.3s ease, -webkit-text-stroke 0.3s ease;
 }
 
-h2 {
-    font-family: 'neon';
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: rgb(0, 0, 0);
+h1:hover {
+    color: #ff9500;
+    -webkit-text-fill-color: #ff9500;
+    -webkit-text-stroke: 1.5px black;
 }
 
 p {
