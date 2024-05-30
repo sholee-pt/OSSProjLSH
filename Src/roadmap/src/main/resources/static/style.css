@@ -401,7 +401,7 @@ p {
 }
 
 .radio-label {
-    margin-right: 10px;
+    margin-right: 12px;
     cursor: pointer;
     display: inline-table;
 }
@@ -412,13 +412,19 @@ p {
 }
 
 .radio-label input:checked + img {
-    border: 2px solid blue; /* 선택되었을 때 이미지에 테두리를 추가 */
+    border: 3px solid yellow;
 }
 
 .radio-wrapper {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* 컨트롤러와 간격을 주기 위해 추가 */
+    margin-right: 28vw;
+}
+
+.controls-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 /*모바일 메뉴*/
