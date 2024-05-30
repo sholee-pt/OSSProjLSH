@@ -294,31 +294,31 @@ function KakaoMap() {
 
     return (
         <div className="map-wrapper">
+            <div className="radio-wrapper">
+                <label className="radio-label">
+                    <input
+                        type="radio"
+                        name="radioGroup"
+                        value="normal"
+                        className="radio-image"
+                        checked={selectedRadio === 'normal'}
+                        onChange={walkingMode}
+                    />
+                    <img src={selectedRadio === 'normal' ? walk2 : walk1} alt="Walk" />
+                </label>
+                <label className="radio-label">
+                    <input
+                        type="radio"
+                        name="radioGroup"
+                        value="wheelchair"
+                        className="radio-image"
+                        checked={selectedRadio === 'wheelchair'}
+                        onChange={wheelchairMode}
+                    />
+                    <img src={selectedRadio === 'wheelchair' ? wheel2 : wheel1} alt="Wheelchair" />
+                </label>
+            </div>
             <div className="controls-wrapper">
-                <div className="radio-wrapper">
-                    <label className="radio-label">
-                        <input
-                            type="radio"
-                            name="radioGroup"
-                            value="normal"
-                            className="radio-image"
-                            checked={selectedRadio === 'normal'}
-                            onChange={walkingMode}
-                        />
-                        <img src={selectedRadio === 'normal' ? walk2 : walk1} alt="Walk" />
-                    </label>
-                    <label className="radio-label">
-                        <input
-                            type="radio"
-                            name="radioGroup"
-                            value="wheelchair"
-                            className="radio-image"
-                            checked={selectedRadio === 'wheelchair'}
-                            onChange={wheelchairMode}
-                        />
-                        <img src={selectedRadio === 'wheelchair' ? wheel2 : wheel1} alt="Wheelchair" />
-                    </label>
-                </div>
                 <div className="controller-wrapper">
                     <select className="box-style" onChange={(e) => {
                         SetStart(e.target.value);
@@ -347,7 +347,7 @@ function KakaoMap() {
                             console.log("Start:", start);
                             console.log("Finish:", finish);
                             if (start && finish) {
-                                axios.get('/map', {
+                                axios.get('/navigation', {
                                     params: {
                                         start: start,
                                         finish: finish
@@ -379,7 +379,8 @@ function KakaoMap() {
             </div>
             <div id="map" className="map-style"></div>
         </div>
-    );
+    );    
+    
 }
 
 export default KakaoMap;
