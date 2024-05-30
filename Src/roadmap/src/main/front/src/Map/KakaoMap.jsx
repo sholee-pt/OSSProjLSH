@@ -26,7 +26,7 @@ function KakaoMap() {
     const [searchClicked, setSearchClicked] = useState(false);
     const [image, setImage] = useState([]);
     const [evMarkers, setEvMarkers] = useState([]);
-    const [selectedRadio, setSelectedRadio] = useState('');
+    const [selectedRadio, setSelectedRadio] = useState('normal');
 
     const cngMarker = (newMarker) => {
         setMarkers(newMarker);
