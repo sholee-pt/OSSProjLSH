@@ -12,7 +12,7 @@ function Router() {
                 <Route path="/" element={<MainPage/>}></Route>
                 <Route path="/buildinginfo" element={<BuildingInfo></BuildingInfo>}></Route>
                 <Route path="/convenient" element={<Convenient></Convenient>}></Route>
-                <Route path="/map" element={<Map></Map>}></Route>
+                <Route path="/navigation" element={<Map></Map>}></Route>
             </Routes>
         </BrowserRouter>
     );

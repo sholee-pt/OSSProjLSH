@@ -347,7 +347,7 @@ function KakaoMap() {
                             console.log("Start:", start);
                             console.log("Finish:", finish);
                             if (start && finish) {
-                                axios.get('/map', {
+                                axios.get('/navigation', {
                                     params: {
                                         start: start,
                                         finish: finish

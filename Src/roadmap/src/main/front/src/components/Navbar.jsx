@@ -24,7 +24,7 @@ const NavBar = () => {
         <div class="links">
           <li><a href="./buildinginfo">INFO</a></li>
           <li><a href="./convenient">CONVENIENT</a></li>
-          <li><a href="./map">PATH</a></li>
+          <li><a href="./navigation">NAV</a></li>
         </div>
         <div class="toggle_btn" onClick={toggleMenu}>
           <i class="fa-solid fa-list"></i>
