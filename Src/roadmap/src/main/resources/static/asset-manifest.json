@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.e3a56cad.js",
+    "main.js": "/static/js/main.c8da5449.js",
     "static/media/R19C_0.png": "/static/media/R19C_0.0ef99baa090e76b0cb0f.png",
     "static/media/W0.jpg": "/static/media/W0.053a44430a1f924ca6a6.jpg",
     "static/media/R20_1.png": "/static/media/R20_1.1f29ae7c4b73810fafb2.png",
@@ -122,12 +122,17 @@
     "static/media/C_4.png": "/static/media/C_4.bc874bb4d8ca5b53b623.png",
     "static/media/원흥관내부카페.jpg": "/static/media/원흥관내부카페.b6a8cf364f51c3f448c4.jpg",
     "static/media/camera.png": "/static/media/camera.ce5238812ddd0bdcd47a.png",
+    "static/media/walk2.png": "/static/media/walk2.bec026cfc0b3ca79d7d4.png",
+    "static/media/walk1.png": "/static/media/walk1.bd9c0da4cd75c058959a.png",
+    "static/media/dgu-banner.png": "/static/media/dgu-banner.da4c5ed1c98220ea7c48.png",
     "static/media/ev.png": "/static/media/ev.1272401733173bda8d95.png",
-    "static/media/ROADMAP_6.png": "/static/media/ROADMAP_6.85b352c95fa8349d441a.png",
+    "static/media/ROADMAP.png": "/static/media/ROADMAP.85b352c95fa8349d441a.png",
+    "static/media/wheel1.png": "/static/media/wheel1.f94ba9b53b87eafde867.png",
+    "static/media/wheel2.png": "/static/media/wheel2.8ca1ca5bb23367e263cf.png",
     "index.html": "/index.html",
-    "main.e3a56cad.js.map": "/static/js/main.e3a56cad.js.map"
+    "main.c8da5449.js.map": "/static/js/main.c8da5449.js.map"
   },
   "entrypoints": [
-    "static/js/main.e3a56cad.js"
+    "static/js/main.c8da5449.js"
   ]
 }

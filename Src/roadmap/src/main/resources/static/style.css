@@ -27,23 +27,7 @@ img{
 .navbar img{
     transform: translate(0,10%);
 }
-a {
-    font-family: 'neon';
-    text-decoration: none;
-    color: rgb(131,120,111);
-    font-size: 1rem;
-}
 
-a:hover {
-    color: coral;
-}
-
-p{
-    font-family: 'neon';
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
-}
 /* Header */
 header {
     position: relative;
@@ -143,10 +127,9 @@ section#hero {
 select option [value = ""][disabled]{
     display : none;
 }
-.controller-wrapper{
 
-}
 .button-style {
+    pointer-events: auto;
     margin : 1vh;
     background-color: rgb(137, 124, 117);
     color:#fff;
@@ -158,6 +141,7 @@ select option [value = ""][disabled]{
     font-weight: bold;
     cursor: pointer;
 }
+
 /*오버레이 스타일*/
 .overlay-wrapper{
     position: relative;
@@ -326,6 +310,123 @@ select option [value = ""][disabled]{
     }
 }
 
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    position: relative;
+}
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.67);
+    padding: 2rem;
+    border-radius: 50px;
+    transform: translateY(-40%);
+}
+
+.centered-content h1,
+.centered-content p {
+    margin: 1rem 0;
+}
+
+.banner {
+    font-family: 'neon';
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1.5rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.github-link {
+    color: rgb(0, 0, 255);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.github-link:hover {
+    color: rgba(98, 0, 255, 0.644);
+}
+
+a {
+    font-family: 'neon';
+    text-decoration: none;
+    color: rgb(131, 120, 111);
+    font-size: 1rem;
+}
+
+a:hover {
+    color: coral;
+}
+
+h1 {
+    font-family: 'neon';
+    font-weight: bold;
+    font-size: 2rem;
+    color: black;
+    line-height: 2;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1.5px #ff9500;
+    -webkit-text-fill-color: black;
+    -webkit-font-smoothing: subpixel-antialiased;
+    transition: color 0.3s ease, -webkit-text-fill-color 0.3s ease, -webkit-text-stroke 0.3s ease;
+}
+
+h1:hover {
+    color: #ff9500;
+    -webkit-text-fill-color: #ff9500;
+    -webkit-text-stroke: 1.5px black;
+}
+
+p {
+    font-family: 'neon';
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-size: 1.25rem;
+}
+
+.radio-image {
+    display: none;
+}
+
+.radio-label {
+    margin-right: 12px;
+    cursor: pointer;
+    display: inline-table;
+}
+
+.radio-label img {
+    width: 3.5vw; 
+    height: 3.5vw;
+}
+
+.radio-label input:checked + img {
+    border: 3px solid yellow;
+}
+
+.radio-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 28vw;
+}
+
+.controls-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 /*모바일 메뉴*/
 .dropdown_menu {
     z-index: 999;
@@ -347,10 +448,11 @@ select option [value = ""][disabled]{
     align-items: center;
     justify-content: center;
 }
-.dropdown_menu li a{
-    font-size:.7em;
+
+.dropdown_menu li a {
+    font-size: 1rem;
 }
 
 .dropdown_menu.open {
-    height: 100px;
+    height: 115px;
 }
