@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./ROADMAP_6.png"
+import Logo from "./ROADMAP.png"
 const NavBar = () => {
 
   const toggleMenu = () => {
@@ -34,7 +34,7 @@ const NavBar = () => {
         <div class="dropdown_menu">
           <li><a href="./buildinginfo">INFO</a></li>
           <li><a href="./convenient">CONVENIENT</a></li>
-          <li><a href="./map">PATH</a></li>
+          <li><a href="./navigation">NAV</a></li>
         </div>
       </div>
     </header>
