@@ -6,7 +6,7 @@ const port = 8080;
 app.use(cors());
 app.use(express.json());
 
-app.get('/map', (req, res) => {
+app.get('/navigation', (req, res) => {
   const { start, finish } = req.query;
   if (!start || !finish) {
     return res.status(400).send('Start and finish parameters are required.');
