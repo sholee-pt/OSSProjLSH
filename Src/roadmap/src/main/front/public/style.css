@@ -20,10 +20,12 @@ body {
 li {
     list-style: none;
 }
+
 img{
     width: 20vw;
     height: 6vw;
 }
+
 .navbar img{
     transform: translate(0,10%);
 }
@@ -405,11 +407,13 @@ p {
     margin-right: 15px;
     cursor: pointer;
     display: inline-table;
+    vertical-align: middle;
 }
 
 .radio-label img {
     width: 3.2vw; 
     height: 3.2vw;
+    border-radius: 10px;
 }
 
 .radio-label input:checked + img {
