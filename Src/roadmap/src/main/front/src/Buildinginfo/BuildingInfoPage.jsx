@@ -119,7 +119,7 @@ function BuildingInfoPage() {
 
                 const buttonClicked=(id) => {
                     localStorage.setItem('myData', id);
-                    window.location.href = '/map';
+                    window.location.href = '/navigation';
                 }
 
                 const textWrapperDiv = document.createElement('div');
