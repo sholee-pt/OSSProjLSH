@@ -7,6 +7,7 @@ import walk1 from "../components/walk1.png";
 import walk2 from "../components/walk2.png";
 import wheel1 from "../components/wheel1.png";
 import wheel2 from "../components/wheel2.png";
+import changeBoth from "../components/change.png";
 
 const { kakao } = window;
 const loc = LocList();
@@ -19,14 +20,14 @@ function KakaoMap() {
     const [iW, addIW] = useState([]);
     const [path, setPath] = useState([]);
     const [stateMarker, setStateMarker] = useState(true);
-    const [start, SetStart] = useState('');
-    const [finish, SetFinish] = useState(storedData || '');
+    const [start, setStart] = useState('');
+    const [finish, setFinish] = useState(storedData || '');
     const [shortestPath, setShortestPath] = useState([]);
     const [dLatLng, setDLatLng] = useState([]);
     const [searchClicked, setSearchClicked] = useState(false);
     const [image, setImage] = useState([]);
     const [evMarkers, setEvMarkers] = useState([]);
-    const [selectedRadio, setSelectedRadio] = useState('normal');
+    const [selectedRadio, setSelectedRadio] = useState('');
 
     const cngMarker = (newMarker) => {
         setMarkers(newMarker);
@@ -284,12 +285,49 @@ function KakaoMap() {
         }
     }
 
+    const handleSearchClick = () => {
+        if (!start || !finish) {
+            window.alert("출발지와 도착지를 모두 선택해주세요.");
+        } else {
+            console.log("Start:", start);
+            console.log("Finish:", finish);
+            axios.get('/navigation', {
+                params: {
+                    start: start,
+                    finish: finish
+                }
+            })
+                .then(response => {
+                    const nestedList = response.data;
+
+                    setImage(nestedList.image);
+                    setShortestPath(nestedList.shortestPath);
+                    setDLatLng(nestedList.dLatLng);
+                    setSearchClicked(true);
+                })
+                .catch(error => {
+                    console.error('Error:', error.message);
+                    if (error.response) {
+                        console.error('Error Response Data:', error.response.data);
+                        console.error('Error Response Status:', error.response.status);
+                        console.error('Error Response Headers:', error.response.headers);
+                    }
+                });
+        }
+    };
+
     const walkingMode = (e) => {
         setSelectedRadio(e.target.value);
     };
 
     const wheelchairMode = (e) => {
         setSelectedRadio(e.target.value);
+    };
+
+    const switchStartFinish = () => {
+        const tempStart = start;
+        setStart(finish);
+        setFinish(tempStart);
     };
 
     return (
@@ -320,67 +358,41 @@ function KakaoMap() {
             </div>
             <div className="controls-wrapper">
                 <div className="controller-wrapper">
-                    <select className="box-style" onChange={(e) => {
-                        SetStart(e.target.value);
-                        console.log("Start selected:", e.target.value);
-                    }}>
-                        <option selected disabled>출발지 선택</option>
-                        {loc.map((building) => <option key={building.code} value={building.code}>{building.id}</option>)}
-                    </select>
-                    <select className="box-style" onChange={(e) => {
-                        const selectedValue = e.target.value;
-                        SetFinish(selectedValue);
-                        console.log("Finish selected:", selectedValue);
-                    }}>
-                        <option selected disabled>도착지 선택</option>
+                    <select
+                        className="box-style"
+                        value={start}
+                        onChange={(e) => {
+                            setStart(e.target.value);
+                            console.log("Start selected:", e.target.value);
+                        }}
+                    >
+                        <option value="" disabled>출발지 선택</option>
                         {loc.map((building) => (
-                            <option
-                                key={building.code}
-                                value={building.code}
-                                selected={building.code === storedData}
-                            >
-                                {building.id}
-                            </option>))}
+                            <option key={building.code} value={building.code}>{building.id}</option>
+                        ))}
                     </select>
-                    <button className="button-style" onClick={
-                        () => {
-                            console.log("Start:", start);
-                            console.log("Finish:", finish);
-                            if (start && finish) {
-                                axios.get('/navigation', {
-                                    params: {
-                                        start: start,
-                                        finish: finish
-                                    }
-                                })
-                                    .then(response => {
-                                        const nestedList = response.data;
-    
-                                        setImage(nestedList.image);
-                                        setShortestPath(nestedList.shortestPath);
-                                        setDLatLng(nestedList.dLatLng);
-                                        setSearchClicked(true);
-                                    })
-                                    .catch(error => {
-                                        console.error('Error:', error.message);
-                                        if (error.response) {
-                                            console.error('Error Response Data:', error.response.data);
-                                            console.error('Error Response Status:', error.response.status);
-                                            console.error('Error Response Headers:', error.response.headers);
-                                        }
-                                    });
-                            } else {
-                                console.error("Start and finish locations must be selected.");
-                            }
-                        }
-                    }
-                    >경로 탐색</button>
+                    <button className="switch-button" onClick={switchStartFinish}>
+                        <img src={changeBoth} alt="Switch" className="switch-button-img" />
+                    </button>
+                    <select
+                        className="box-style"
+                        value={finish}
+                        onChange={(e) => {
+                            setFinish(e.target.value);
+                            console.log("Finish selected:", e.target.value);
+                        }}
+                    >
+                        <option value="" disabled>도착지 선택</option>
+                        {loc.map((building) => (
+                            <option key={building.code} value={building.code}>{building.id}</option>
+                        ))}
+                    </select>
+                    <button className="button-style" onClick={handleSearchClick}>경로 탐색</button>
                 </div>
             </div>
             <div id="map" className="map-style"></div>
         </div>
-    );    
-    
+    );
 }
 
 export default KakaoMap;
