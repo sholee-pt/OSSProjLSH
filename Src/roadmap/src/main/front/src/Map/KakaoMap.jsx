@@ -287,7 +287,7 @@ function KakaoMap() {
 
     const handleSearchClick = () => {
         if (!start || !finish) {
-            window.alert("출발지와 도착지를 모두 선택해주세요.");
+            window.alert("출발지와 목적를 모두 선택해주세요.");
         } else {
             console.log("Start:", start);
             console.log("Finish:", finish);
@@ -382,7 +382,7 @@ function KakaoMap() {
                             console.log("Finish selected:", e.target.value);
                         }}
                     >
-                        <option value="" disabled>도착지 선택</option>
+                        <option value="" disabled>목적지 선택</option>
                         {loc.map((building) => (
                             <option key={building.code} value={building.code}>{building.id}</option>
                         ))}
