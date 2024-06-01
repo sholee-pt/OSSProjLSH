@@ -20,10 +20,12 @@ body {
 li {
     list-style: none;
 }
+
 img{
     width: 20vw;
     height: 6vw;
 }
+
 .navbar img{
     transform: translate(0,10%);
 }
@@ -124,6 +126,7 @@ section#hero {
     font-weight: bold;
     cursor: pointer;
 }
+
 select option [value = ""][disabled]{
     display : none;
 }
@@ -404,11 +407,13 @@ p {
     margin-right: 15px;
     cursor: pointer;
     display: inline-table;
+    vertical-align: middle;
 }
 
 .radio-label img {
-    width: 3.5vw; 
-    height: 3.5vw;
+    width: 3.2vw; 
+    height: 3.2vw;
+    border-radius: 10px;
 }
 
 .radio-label input:checked + img {
@@ -418,10 +423,10 @@ p {
 .radio-wrapper {
     display: flex;
     align-items: center;
-    align-self:self-start;
+    align-self: first baseline;
     position: relative;
     margin-left: 3%;
-    transform: translateY(120%);
+    transform: translateY(100%);
 }
 
 .controls-wrapper {
@@ -429,6 +434,20 @@ p {
     display: flex;
     align-items: center;
 }
+
+.switch-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.switch-button-img {
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+}
+
 
 /*모바일 메뉴*/
 .dropdown_menu {
