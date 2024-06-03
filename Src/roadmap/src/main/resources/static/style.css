@@ -141,6 +141,7 @@ select option [value = ""][disabled]{
     font-weight: bold;
     cursor: pointer;
 }
+
 /*오버레이 스타일*/
 .overlay-wrapper{
     position: relative;
@@ -313,7 +314,7 @@ select option [value = ""][disabled]{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 95vh;
     position: relative;
 }
 
@@ -322,37 +323,39 @@ select option [value = ""][disabled]{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.67); /* 상자 배경색 */
-    padding: 2rem; /* 패딩 */
-    border-radius: 50px; /* 테두리 둥글게 */
-    transform: translateY(-40%); /* 위치 조정 */
+    background-color: rgba(255, 255, 255, 0.67);
+    padding: 2rem;
+    border-radius: 50px;
+    transform: translateY(-40%);
 }
 
 .centered-content h1,
-.centered-content h2,
 .centered-content p {
     margin: 1rem 0;
 }
 
-.footer {
+.banner {
     font-family: 'neon';
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
     padding: 1.5rem;
-    background-color: rgba(255, 115, 0);
     position: fixed;
     width: 100%;
     bottom: 0;
 }
 
-.email-link {
+.github-link {
     color: rgb(0, 0, 255);
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
     padding: 0.5rem;
     font-size: 1.2rem;
+}
+
+.github-link:hover {
+    color: rgba(98, 0, 255, 0.644);
 }
 
 a {
@@ -370,14 +373,19 @@ h1 {
     font-family: 'neon';
     font-weight: bold;
     font-size: 2rem;
-    color: #2196F3;
+    color: black;
+    line-height: 2;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1.5px #ff9500;
+    -webkit-text-fill-color: black;
+    -webkit-font-smoothing: subpixel-antialiased;
+    transition: color 0.3s ease, -webkit-text-fill-color 0.3s ease, -webkit-text-stroke 0.3s ease;
 }
 
-h2 {
-    font-family: 'neon';
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: rgb(0, 0, 0);
+h1:hover {
+    color: #ff9500;
+    -webkit-text-fill-color: #ff9500;
+    -webkit-text-stroke: 1.5px black;
 }
 
 p {
@@ -387,7 +395,38 @@ p {
     color: black;
     font-size: 1.25rem;
 }
-  
+
+.radio-image {
+    display: none;
+}
+
+.radio-label {
+    margin-right: 12px;
+    cursor: pointer;
+    display: inline-table;
+}
+
+.radio-label img {
+    width: 3.5vw; 
+    height: 3.5vw;
+}
+
+.radio-label input:checked + img {
+    border: 3px solid yellow;
+}
+
+.radio-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 28vw;
+}
+
+.controls-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 /*모바일 메뉴*/
 .dropdown_menu {
     z-index: 999;
@@ -409,10 +448,11 @@ p {
     align-items: center;
     justify-content: center;
 }
-.dropdown_menu li a{
-    font-size:.7em;
+
+.dropdown_menu li a {
+    font-size: 1rem;
 }
 
 .dropdown_menu.open {
-    height: 100px;
+    height: 115px;
 }

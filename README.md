@@ -9,7 +9,7 @@
 ------|-------|-------|-------|-------
 팀장 | 권일준 | 통계학과 | 융합SW연계전공 | jonkwon99@dongguk.edu         
 팀원 | 김명하 | 산업시스템공학과 | 융합SW연계전공 | kk313s@dongguk.edu        
-팀원 | 이승호 | 생명과학과 | 융합SW연계전공 | sholeept@dgu.ac.kr    
+팀원 | 이승호 | 생명과학과 | 융합SW연계전공 | sholeept@dongguk.edu   
 
 ## 종합 정보  
 ### 프로젝트 제목  
@@ -23,16 +23,18 @@
 ### 최종 결과물
  *최종 사진 추가 예정*
 
+ [프로젝트 개발을 위한 소스코드]()
+
 ### 프로젝트 설계/구현 내용
 * 계단과 높은 경사가 있는 길을 제외하고 전력소비량을 최소화하는 휠체어용 네비게이션 기능을 추가  
 * 휠체어용 네비게이션으로 다익스트라 알고리즘을 활용  
 * 동국대학교 충무로 방향 건물들에 대한 전체 구조도 작성  
 
 * 유스케이스 다이어그램(Usecase Diagram)  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_midreport.jpg">  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_finalreport.jpg">  
 
 * 블록 다이어그램(Block Diagram)
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block_midreport.jpg">  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block_finalreport.jpg">  
 
 * 시퀀스 다이어그램(Sequence Diagram) 
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/sequence.jpg">  

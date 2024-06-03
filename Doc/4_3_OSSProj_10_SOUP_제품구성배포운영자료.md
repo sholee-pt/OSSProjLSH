@@ -1,7 +1,5 @@
 # A4.3 OSS 프로젝트 제품 구성, 배포 및 운영 자료  
 
-- *자료 내용이 길어지는 경우 별도 문서로 작성하고 링크로 연결*
-
 ## 1. 프로젝트 제품 구성
 
 -추후 수정
@@ -21,14 +19,19 @@
 ```
 npm install npx -g
 ```
-3. 상기 코드를 clone받은 폴더 내의 /Src/frontend 경로로 이동
+3. 상기 코드를 clone받은 폴더 내의 front 폴더로 이동
 ```
-cd /Src/frontend
+cd ./Src/roadmap/src/main/front
 ```
-4. 순차적으로 명령어를 입력하여 React 웹 페이지 실행
+4. 명령어를 입력하여 백엔드 서버 실행
+```
+node src/server.js
+```
+5. 초기에 노드 모듈이 front 폴더 내에 없다면 다음 명령어를 통해 설치
 ```
 npm update
 ```
+6. React 웹 페이지 실행
 ```
 npm start
 ```

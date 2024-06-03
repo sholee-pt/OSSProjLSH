@@ -2,7 +2,7 @@
 
 ## 범위/일정 관리  
 
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule.JPG">
+일정관리표 바로가기: [구글 스프레드 시트](https://docs.google.com/spreadsheets/d/1ZgVCbwnMooV5keFKf5sFHki4f45VoOQRasOnbdF3GfY/edit#gid=133022494) 
 
 ## 이슈 관리  
 
@@ -31,6 +31,12 @@
 - [X] 시간대 별 엘리베이터 및 경로 지연시간 고려
     - 시간에 따라 엘리베이터 몰리는 경우가 있다. 주로 통학과 관련된 시간으로 이를 고려하여 길을 소개하는 방법 고려
     - 다만 이번 프로젝트의 경우 열량을 중심으로 하기 때문에 시간적 요소는 제외
+- [X] 기존 프로잭트 프로그램의 오류 발견
+    - 기존의 프로그램에서 여러 부분들이 작동을 하지 않음
+    - 기존의 프로그램이 frontend와 backend간 연결이 없었음
+        - 프로그램 최신화 및 직접 연결로 오류 수정
+    - web 소켓 오류 발견
+        - 서버 도입으로 해결
 
 ## README.md로 돌아가기
 [README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)
