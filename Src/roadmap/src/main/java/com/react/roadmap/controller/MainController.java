@@ -3,7 +3,7 @@ package com.react.roadmap.controller;
 import com.react.roadmap.function.AppRunner;
 import com.react.roadmap.function.DijkstraAlgorithm;
 import com.react.roadmap.function.GetLatLng;
-import com.react.roadmap.function.Node;
+import com.react.roadmap.data.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
