@@ -641,8 +641,10 @@ function KakaoMap() {
     }
 
     const handleSearchClick = () => {
-        if (!start || !finish) {
-            window.alert("출발지와 목적를 모두 선택해주세요.");
+        if (!selectedRadio) {
+            window.alert("모드를 먼저 선택하세요.");
+        } else if (!start || !finish) {
+            window.alert('출발지와 목적지를 설정해주세요.'); 
         } else {
             console.log("Start:", start);
             console.log("Finish:", finish);
