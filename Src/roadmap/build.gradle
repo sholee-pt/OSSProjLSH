@@ -1,7 +1,10 @@
+
+
 // plugins {
 //     id 'java'
 //     id 'org.springframework.boot' version '3.0.6'
 //     id 'io.spring.dependency-management' version '1.1.0'
+//     id 'application' // 추가
 // }
 
 // group = 'com.react'
@@ -20,6 +23,7 @@
 
 // dependencies {
 //     implementation 'org.springframework.boot:spring-boot-starter-web'
+//     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
 //     compileOnly 'org.projectlombok:lombok'
 //     runtimeOnly 'com.mysql:mysql-connector-j'
 //     annotationProcessor 'org.projectlombok:lombok'
@@ -53,9 +57,10 @@
 //     group = BasePlugin.BUILD_GROUP
 //     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
 //         commandLine "npm.cmd", "audit", "fix"
-//         commandLine 'npm.cmd', 'install' }
-//     else {
-//         commandLine "npm", "audit", "fix" commandLine 'npm', 'install'
+//         commandLine 'npm.cmd', 'install'
+//     } else {
+//         commandLine "npm", "audit", "fix"
+//         commandLine 'npm', 'install'
 //     }
 // }
 
@@ -86,7 +91,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.0.6'
     id 'io.spring.dependency-management' version '1.1.0'
-    id 'application' // 추가
+    id 'application'
 }
 
 group = 'com.react'
@@ -105,6 +110,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
@@ -114,7 +120,7 @@ dependencies {
 }
 
 application {
-    mainClass = 'com.react.roadmap.function.DijkstraAlgorithm' // 실제 메인 클래스의 경로로 수정
+    mainClass = 'com.react.roadmap.function.DijkstraAlgorithm'
 }
 
 tasks.named('test') {
@@ -125,7 +131,8 @@ def frontendDir = "$projectDir/src/main/front"
 
 sourceSets {
     main {
-        resources { srcDirs = ["$projectDir/src/main/resources"]
+        resources {
+            srcDirs = ["$projectDir/src/main/resources"]
         }
     }
 }
@@ -166,4 +173,11 @@ task copyReactBuildFiles(type: Copy) {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
     options.compilerArgs += ['-parameters']
+}
+
+// 추가된 섹션: Fat JAR 생성
+bootJar {
+    archiveFileName = 'app.jar'
+    mainClassName = 'com.react.roadmap.function.DijkstraAlgorithm'
+    launchScript()
 }
