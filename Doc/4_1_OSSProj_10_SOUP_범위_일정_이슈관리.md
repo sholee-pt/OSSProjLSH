@@ -37,6 +37,8 @@
         - 프로그램 최신화 및 직접 연결로 오류 수정
     - web 소켓 오류 발견
         - 서버 도입으로 해결
+    - 네비게이션 기능 자체의 오류로 작동하지 않음
+        - 네비게이션 파트 코드를 처음부터 재작성
 
 ## README.md로 돌아가기
 [README](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/README.md)
