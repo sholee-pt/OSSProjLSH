@@ -1,12 +1,13 @@
+import React,{useEffect} from "react";
 import NavBar from "../components/Navbar.jsx";
 import ConvenientPage from "./ConvenientPage.jsx";
 
-
 function Convenient() {
-  return (
+
+return (
     <div>
-    <NavBar/>
-    <ConvenientPage></ConvenientPage>
+      <NavBar/>
+      <ConvenientPage></ConvenientPage>
     </div>
   );
 }
