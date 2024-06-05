@@ -294,7 +294,7 @@ const buildDir = path.join(projectRoot, 'build', 'libs', 'app.jar');  // 빌드 
 app.use(cors());
 app.use(express.json());
 
-app.get('/map', (req, res) => {
+app.get('/navigation', (req, res) => {
     const { start, finish } = req.query;
     if (!start || !finish) {
         return res.status(400).json({ error: 'Invalid parameters' });
