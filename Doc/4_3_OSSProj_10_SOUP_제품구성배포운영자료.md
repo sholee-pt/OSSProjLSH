@@ -2,12 +2,12 @@
 
 ## 1. 프로젝트 제품 구성
 
--추후 수정
-- *프로젝트 제품의 구성과 배치 내역을 그림과 글로 설명*  
+[Overview](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_4_OSSProj_10_SOUP_Overview.md) 파일 참조
   
 ## 2. 프로젝트 제품 배포 방법  
 
-- 추후 수정
+build 후 작성 예정
+
 - *프로젝트 제품을 최종 인프라에 배포하는 과정을 단계적으로 설명*
 - *도구를 활용하여 배포 자동화를 하는 경우, 관련 절차 설명과 스크립트 등 자료를 제시*
 
@@ -27,7 +27,7 @@ cd ./Src/roadmap/src/main/front
 ```
 node src/server.js
 ```
-5. 초기에 노드 모듈이 front 폴더 내에 없다면 다음 명령어를 통해 설치
+5. 새로운 CMD 창에서 clone받은 폴더 내의 front 폴더로 이동 후 초기에 노드 모듈이 front 폴더 내에 없다면 다음 명령어를 통해 설치
 ```
 npm update
 ```
