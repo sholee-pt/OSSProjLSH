@@ -26,27 +26,39 @@ public class MainController {
         this.appRunner = appRunner;
     }
 
-    @GetMapping("map")
-    public Map<String, Object> dataInsert(@RequestParam String start, @RequestParam String finish) {
-        Node[] nodeArr = appRunner.getNodeArr();
+    // @GetMapping("map")
+    // public Map<String, Object> dataInsert(@RequestParam String start, @RequestParam String finish) {
+    //     Node[] nodeArr = appRunner.getNodeArr();
 
-        // Call the findShortestPath method and specify the start and finish nodes
-        List<String> shortestPath = dijkstraAlgorithm.findShortestPath(nodeArr, start, finish);
+    //     // Call the findShortestPath method and specify the start and finish nodes
+    //     List<String> shortestPath = dijkstraAlgorithm.findShortestPath(nodeArr, start, finish);
 
-        GetLatLng getLatLng = new GetLatLng();
+    //     GetLatLng getLatLng = new GetLatLng();
 
-        List<List<Double>> dLatLng = getLatLng.getLatLng(nodeArr, shortestPath);
+    //     List<List<Double>> dLatLng = getLatLng.getLatLng(nodeArr, shortestPath);
 
 
 
-        // Create a Map to store the results
-        Map<String, Object> result = new HashMap<>();
-        result.put("shortestPath", shortestPath);
-        result.put("dLatLng", dLatLng);
+    //     // Create a Map to store the results
+    //     Map<String, Object> result = new HashMap<>();
+    //     result.put("shortestPath", shortestPath);
+    //     result.put("dLatLng", dLatLng);
 
-        return result;
+    //     return result;
+    // }
+@GetMapping("map")
+public Map<String, Object> dataInsert(@RequestParam String start, @RequestParam String finish) {
+    Node[] nodeArr = appRunner.getNodeArr();
+    List<String> shortestPath = dijkstraAlgorithm.findShortestPath(nodeArr, start, finish);
+    GetLatLng getLatLng = new GetLatLng();
+    List<List<Double>> dLatLng = getLatLng.getLatLng(nodeArr, shortestPath);
+
+    Map<String, Object> result = new HashMap<>();
+    result.put("shortestPath", shortestPath);
+    result.put("dLatLng", dLatLng);
+
+    System.out.println("응답값 : " + result);
+
+    return result;
     }
-
-
-
 }
