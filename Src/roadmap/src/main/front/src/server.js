@@ -14,10 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/map', (req, res) => {
-  const { start, finish } = req.query;
-  if (!start || !finish) {
-    return res.status(400).json({ error: 'Invalid parameters' });
-  }
+    const { start, finish } = req.query;
+    if (!start || !finish) {
+        return res.status(400).json({ error: 'Invalid parameters' });
+    }
 
   // Gradle Wrapper 경로 설정
   const gradlewPath = path.join(projectRoot, 'gradlew');

@@ -318,9 +318,7 @@ export default KakaoMap;
 
 
 
-
 // /*global kakao*/
-
 // import React, { useEffect, useState } from "react";
 // import axios from "axios";
 // import LocList from "../components/buildinginfo";
@@ -337,14 +335,13 @@ export default KakaoMap;
 
 // function KakaoMap() {
 //     const storedData = localStorage.getItem('myData');
-
 //     const [map, settingMap] = useState(null);
 //     const [markers, setMarkers] = useState([]);
 //     const [iW, addIW] = useState([]);
 //     const [path, setPath] = useState([]);
 //     const [stateMarker, setStateMarker] = useState(true);
-//     const [start, setStart] = useState('');
-//     const [finish, setFinish] = useState(storedData || '');
+//     const [start, SetStart] = useState('');
+//     const [finish, SetFinish] = useState(storedData || '');
 //     const [shortestPath, setShortestPath] = useState([]);
 //     const [dLatLng, setDLatLng] = useState([]);
 //     const [searchClicked, setSearchClicked] = useState(false);
@@ -395,7 +392,7 @@ export default KakaoMap;
 //             } catch (error) {
 //                 console.log("Error:", error);
 //             }
-//         } else if (map && path.length > 0) {
+//         } else if (map && path) {
 //             path.forEach((line) => line.setMap(null));
 //             setPath([]);
 //         }
@@ -403,26 +400,26 @@ export default KakaoMap;
 
 //     useEffect(() => {
 //         if (map && searchClicked) {
-//             if (markers && Array.isArray(dLatLng) && dLatLng.length > 0 && shortestPath.length > 0) {
+//             if (dLatLng && dLatLng.length > 0 && shortestPath && shortestPath.length > 0) {
 //                 drawPath(dLatLng);
 //                 createMarker(dLatLng, shortestPath);
-//                 setSearchClicked(false);
+//                 setSearchClicked(false); // Reset the searchClicked state variable
 //             }
 //         }
-//     }, [map, markers, stateMarker, dLatLng, shortestPath, path, iW, searchClicked]);
+//     }, [map, searchClicked, dLatLng, shortestPath]);
 
 //     const deleteLine = () => {
 //         if (map && path) {
-//             path.forEach((line) => line.setMap(null));
+//             path.forEach((line) => line.setMap(null)); // Remove each line from the map
 //         }
 //     };
 
 //     const deleteMarker = () => {
 //         if (markers && markers.length > 0) {
-//             markers.forEach((marker) => { marker.setMap(null); });
-//             iW.forEach((iW) => { iW.setMap(null); });
-//             addIW([]);
-//             setMarkers([]);
+//             markers.forEach((marker) => marker.setMap(null)); // Remove each marker from the map
+//             iW.forEach((iW) => iW.setMap(null)); // Remove each infoWindow from the map
+//             addIW([]); // Clear the iW array
+//             setMarkers([]); // Clear the markers array
 //         }
 //     };
 
@@ -452,10 +449,9 @@ export default KakaoMap;
 //     }
 
 //     function createMarker(dLatLng, shortestPath) {
-//         console.log("create marker");
 //         if (map) {
 //             try {
-//                 deleteMarker();
+//                 deleteMarker(); // Delete previously existing markers
 //                 const newMarkers = [];
 //                 const newiW = [];
 //                 const tempEvMarkers = [];
@@ -474,12 +470,10 @@ export default KakaoMap;
 //                         newMarkers.push(newMarker);
 //                     }
 
-//                     console.log(node);
-
 //                     if (node[0] === 'V') {
 //                         const ev = "ev.png";
-//                         const imageSrc = getImgAdd(ev),
-//                             imageSize = new kakao.maps.Size(30, 30),
+//                         const imageSrc = getImgAdd(ev), // 마커이미지의 주소입니다
+//                             imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
 //                             imageOption = { offset: new kakao.maps.Point(14, 20) };
 
 //                         const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
@@ -498,8 +492,8 @@ export default KakaoMap;
 //                         const imgCode = node + ".jpg";
 //                         const infoImg = getImgAdd(imgCode);
 
-//                         const imageSrc = getImgAdd(camera),
-//                             imageSize = new kakao.maps.Size(32, 35),
+//                         const imageSrc = getImgAdd(camera), // 마커이미지의 주소입니다
+//                             imageSize = new kakao.maps.Size(32, 35), // 마커이미지의 크기입니다
 //                             imageOption = { offset: new kakao.maps.Point(14, 20) };
 
 //                         const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
@@ -566,28 +560,26 @@ export default KakaoMap;
 
 //                         newMarker.setMap(map);
 //                         newMarkers.push(newMarker);
-
 //                     } else {
 //                         console.log("none");
 //                     }
 //                 }
 //                 addIW(newiW);
-//                 setMarkers(newMarkers);
+//                 setMarkers(newMarkers); // Set the new markers in the state variable
 //                 setEvMarkers(tempEvMarkers);
 
 //                 evMarkers.forEach((marker) => {
 //                     marker.setMap(null);
 //                 });
-//             } catch (error) {
-//                 console.log("createMarker Error", error);
+//             } catch {
+//                 console.log("createMarker Error");
 //             }
 //         }
 //     }
 
 //     function drawPath(nestedList) {
-//         console.log(123);
 //         if (map) {
-//             deleteLine();
+//             deleteLine(); // Delete the previously drawn path
 //             try {
 //                 const newPath = [];
 //                 for (let i = 0; i < nestedList.length - 1; i++) {
@@ -599,11 +591,11 @@ export default KakaoMap;
 //                         parseFloat(nestedList[i + 1][0]),
 //                         parseFloat(nestedList[i + 1][1])
 //                     );
-//                     const newLine = drawLine(map, startLatLng, finishLatLng);
+//                     const newLine = drawLine(map, startLatLng, finishLatLng); // Draw each line of the new path
 //                     newPath.push(newLine);
 //                 }
 //                 setPath(newPath); // Set the new path in the state variable
-//             } catch (error) {
+//             } catch {
 //                 console.log("drawPath error");
 //             }
 //         }
@@ -613,7 +605,7 @@ export default KakaoMap;
 //         if (!selectedRadio) {
 //             window.alert("모드를 먼저 선택하세요.");
 //         } else if (!start || !finish) {
-//             window.alert('출발지와 목적지를 설정해주세요.'); 
+//             window.alert('출발지와 목적지를 설정해주세요.');
 //         } else {
 //             console.log("Start:", start);
 //             console.log("Finish:", finish);
@@ -652,8 +644,8 @@ export default KakaoMap;
 
 //     const switchStartFinish = () => {
 //         const tempStart = start;
-//         setStart(finish);
-//         setFinish(tempStart);
+//         SetStart(finish);
+//         SetFinish(tempStart);
 //     };
 
 //     return (
@@ -682,41 +674,35 @@ export default KakaoMap;
 //                     <img src={selectedRadio === 'wheelchair' ? wheel2 : wheel1} alt="Wheelchair" />
 //                 </label>
 //             </div>
-//             <div className="controls-wrapper">
-//                 <div className="controller-wrapper">
-//                     <select
-//                         className="box-style"
-//                         value={start}
-//                         onChange={(e) => {
-//                             setStart(e.target.value);
-//                             console.log("Start selected:", e.target.value);
-//                         }}
-//                     >
-//                         <option value="" disabled>출발지 선택</option>
-//                         {loc.map((building) => (
-//                             <option key={building.code} value={building.code}>{building.id}</option>
-//                         ))}
-//                     </select>
-//                     <button className="switch-button" onClick={switchStartFinish}>
-//                         <img src={changeBoth} alt="Switch" className="switch-button-img" />
-//                     </button>
-//                     <select
-//                         className="box-style"
-//                         value={finish}
-//                         onChange={(e) => {
-//                             setFinish(e.target.value);
-//                             console.log("Finish selected:", e.target.value);
-//                         }}
-//                     >
-//                         <option value="" disabled>목적지 선택</option>
-//                         {loc.map((building) => (
-//                             <option key={building.code} value={building.code}>{building.id}</option>
-//                         ))}
-//                     </select>
-//                     <button className="button-style" onClick={handleSearchClick}>경로 탐색</button>
-//                 </div>
+//             <div className="controller-wrapper">
+//                 <select className="box-style" value={start} onChange={(e) => {
+//                     SetStart(e.target.value);
+//                 }}>
+//                     <option value="" disabled>출발지 선택</option>
+//                     {loc.map((building) => <option key={building.code} value={building.code}>{building.id}</option>)}
+//                 </select>
+//                 <button className="switch-button" onClick={switchStartFinish}>
+//                     <img src={changeBoth} alt="Switch" className="switch-button-img" />
+//                 </button>
+//                 <select className="box-style" value={finish} onChange={(e) => {
+//                     const selectedValue = e.target.value;
+//                     SetFinish(selectedValue);
+//                 }}>
+//                     <option value="" disabled>도착지 선택</option>
+//                     {loc.map((building) => (
+//                         <option
+//                             key={building.code}
+//                             value={building.code}
+//                             selected={building.code === storedData}
+//                         >
+//                             {building.id}
+//                         </option>))}
+//                 </select>
+//                 <button className="button-style" onClick={handleSearchClick}>경로 탐색</button>
 //             </div>
-//             <div id="map" className="map-style"></div>
+//             <span>
+//                 <div id="map" className="map-style"></div>
+//             </span>
 //         </div>
 //     );
 // }
