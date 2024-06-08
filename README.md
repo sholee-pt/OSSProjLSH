@@ -43,7 +43,7 @@
 
  [프로젝트 시연 동영상]()
 
- [프로젝트 개발을 위한 소스코드](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_4_OSSProj_10_SOUP_Overview.md)
+ [프로젝트 개발을 위한 소스코드](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Src/Overview.md)
 
 ### 프로젝트 설계/구현 내용
 * 계단과 높은 경사가 있는 길을 제외하고 전력소비량을 최소화하는 휠체어용 네비게이션 기능을 추가  
