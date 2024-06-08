@@ -33,9 +33,13 @@
    * 장애를 가진 학생 및 방문객에게 평등한 교육 및 체험 기회 제공 
 
 ### 최종 결과물
- 좌: 건물정보 페이지(INFO) | 우: 편의시설 페이지(CONVENIENT)
+ 메인 페이지(MAIN) | 길찾기 페이지(NAV)
  -------------------------|------------------------------
-<img width="1100" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/screenshot1.png">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/main_page.png"> | 추가 예정
+
+ 건물정보 페이지(INFO) | 편의시설 페이지(CONVENIENT)
+ -------------------------|------------------------------
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/building_page.png"> | <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/conv_page.png">
 
  [프로젝트 시연 동영상]()
 
