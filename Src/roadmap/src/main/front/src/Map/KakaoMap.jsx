@@ -4,7 +4,7 @@ import axios from "axios";
 import LocList from "../components/buildinginfo";
 // import drawLine from "../components/Line";  // 사용되지 않는다면 주석 처리 또는 제거
 import { showMarker } from "../components/Marker";
-
+import locData from "../components/node.json";
 const loc = LocList();
 
 function KakaoMap({ start, finish }) {
@@ -68,91 +68,45 @@ function KakaoMap({ start, finish }) {
         setMarkers(newMarker);
     }, []);
 
+
     const createMarker = useCallback((dLatLng, shortestPath) => {
         if (map) {
             try {
                 deleteMarker();
                 const newMarkers = [];
                 const newiW = [];
-                for (let i = 0; i < dLatLng.length; i++) {
+                for (let i = 0; i < shortestPath.length; i++) {
                     const node = shortestPath[i];
-                    const markerPosition = new window.kakao.maps.LatLng(
-                        parseFloat(dLatLng[i][0]),
-                        parseFloat(dLatLng[i][1])
-                    );
-                    const newMarker = new window.kakao.maps.Marker({
-                        position: markerPosition,
-                    });
-                    newMarker.setMap(map);
-                    newMarkers.push(newMarker);
-
-                    if (node[0] === 'V') {
-                        const ev = "ev.png";
-                        const imageSrc = getImgAdd(ev);
-                        const imageSize = new kakao.maps.Size(30, 30);
-                        const imageOption = { offset: new kakao.maps.Point(14, 20) };
-                        const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-                        newMarker.setImage(markerImage);
-                    } else if (imgChk(node) === true) {
-                        const camera = "camera.png";
-                        const imgCode = node + ".jpg";
-                        const infoImg = getImgAdd(imgCode);
-                        const imageSrc = getImgAdd(camera);
-                        const imageSize = new kakao.maps.Size(32, 35);
-                        const imageOption = { offset: new kakao.maps.Point(14, 20) };
-                        const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-                        newMarker.setImage(markerImage);
-
-                        const newInfo = new window.kakao.maps.CustomOverlay({
-                            clickable: false,
-                            map: map,
-                            position: newMarker.getPosition(),
-                            removable: true,
-                            zIndex: 5
+                    const loc = locData.find(l => l.code === node);  // JSON 데이터에서 위치 정보를 찾습니다.
+                    if (loc) {
+                        const markerPosition = new window.kakao.maps.LatLng(
+                            loc.Lat,
+                            loc.Lng
+                        );
+                        const newMarker = new window.kakao.maps.Marker({
+                            position: markerPosition,
                         });
-
-                        const wrapperDiv = document.createElement('div');
-                        wrapperDiv.classList.add('overlay-wrapper-onlyimg');
-                        const barDiv = document.createElement('div');
-                        barDiv.classList.add('overlay-bar');
-                        const xmarkDiv = document.createElement('div');
-                        xmarkDiv.classList.add('xmark');
-                        const iElement = document.createElement('i');
-                        iElement.classList.add('fa-solid', 'fa-xmark');
-                        iElement.addEventListener('click', closeOverlay);
-                        xmarkDiv.appendChild(iElement);
-
-                        const imgWrapperDiv = document.createElement('div');
-                        imgWrapperDiv.classList.add('overlay-img-wrapper');
-                        const imgElement = document.createElement('img');
-                        imgElement.src = infoImg;
-                        imgElement.alt = 'Building Image';
-                        imgWrapperDiv.appendChild(imgElement);
-
-                        barDiv.appendChild(xmarkDiv);
-                        wrapperDiv.appendChild(barDiv);
-                        wrapperDiv.appendChild(imgWrapperDiv);
-                        newInfo.setContent(wrapperDiv);
-
-                        function closeOverlay() {
-                            if (map) {
-                                if (newInfo.getMap() === null) {
-                                    newInfo.setMap(map, newMarker);
-                                } else {
-                                    newInfo.setMap(null);
-                                }
-                            }
-                        }
-
-                        newInfo.setMap(null);
-                        newiW.push(newInfo);
-
-                        window.kakao.maps.event.addListener(newMarker, 'click', function () {
-                            closeOverlay();
-                        });
-
                         newMarker.setMap(map);
                         newMarkers.push(newMarker);
+
+                        const imgCode = node + ".jpg";
+                        const infoImg = getImgAdd(imgCode);
+                        const infoContent = `
+                            <div style="padding:5px; z-index:1;">
+                                ${node}<br>
+                                <img src="${infoImg}" width="100" height="100">
+                            </div>`;
+
+                        const infoWindow = new window.kakao.maps.InfoWindow({
+                            content: infoContent,
+                            removable: true
+                        });
+
+                        newiW.push(infoWindow);
+
+                        window.kakao.maps.event.addListener(newMarker, 'click', function () {
+                            infoWindow.open(map, newMarker);
+                        });
                     }
                 }
                 addIW(newiW);
@@ -163,6 +117,7 @@ function KakaoMap({ start, finish }) {
         }
     }, [map, deleteMarker, imgChk]);
 
+    
     const drawPath = useCallback((nestedList) => {
         if (map) {
             deleteLine();
@@ -241,6 +196,9 @@ function KakaoMap({ start, finish }) {
 
     useEffect(() => {
         if (map && searchClicked) {
+            console.log("map:", map);
+            console.log("dLatLng:", dLatLng);
+            console.log("shortestPath:", shortestPath);
             if (dLatLng && dLatLng.length > 0 && shortestPath && shortestPath.length > 0) {
                 drawPath(dLatLng);
                 createMarker(dLatLng, shortestPath);
@@ -249,10 +207,17 @@ function KakaoMap({ start, finish }) {
         }
     }, [map, searchClicked, dLatLng, shortestPath, createMarker, drawPath]);
 
+    // const getImgAdd = (imgName) => {
+    //     try {
+    //         const imgAdd = require(`../images/${imgName}`);
+    //         return imgAdd;
+    //     } catch (error) {
+    //         return null;
+    //     }
+    // };
     const getImgAdd = (imgName) => {
         try {
-            const imgAdd = require(`../images/${imgName}`);
-            return imgAdd;
+            return require(`../images/${imgName}`).default;
         } catch (error) {
             return null;
         }
@@ -289,12 +254,14 @@ function KakaoMap({ start, finish }) {
                         }
                     })
                         .then(response => {
+                            console.log("Received response:", response.data); // 추가된 로그
                             const nestedList = response.data;
-                            console.log("Received response:", nestedList); // 추가된 로그
                             if (nestedList && nestedList.dLatLng) {
-                                setImage(nestedList.image);
+                                console.log("Setting image, shortestPath and dLatLng with data:", nestedList);
+                                
                                 setShortestPath(nestedList.shortestPath);
-                                setDLatLng(nestedList.dLatLng.map(coord => coord.split(',')));
+                                // setDLatLng(nestedList.dLatLng.map(coord => coord.split(',')));
+                                setDLatLng(nestedList.dLatLng)
                                 setSearchClicked(true);
                             } else {
                                 console.error("Invalid response data:", nestedList);
@@ -302,7 +269,9 @@ function KakaoMap({ start, finish }) {
                         })
                         .catch(error => {
                             console.log("Error:", error);
-                            console.log("Error response data:", error.response.data); // 에러 로그 추가
+                            if (error.response && error.response.data) {
+                                console.log("Error response data:", error.response.data); // 에러 로그 추가
+                            }
                         });
                 }
                 }>경로 탐색</button>

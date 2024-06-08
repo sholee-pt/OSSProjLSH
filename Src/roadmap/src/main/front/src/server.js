@@ -13,6 +13,9 @@ const buildDir = path.join(projectRoot, 'build', 'libs');  // 빌드 결과물�
 app.use(cors());
 app.use(express.json());
 
+const locDataPath = path.join(__dirname, './components/node.json');
+const locData = JSON.parse(fs.readFileSync(locDataPath, 'utf-8'));
+
 app.get('/map', (req, res) => {
     const { start, finish } = req.query;
     if (!start || !finish) {
@@ -81,12 +84,19 @@ app.get('/map', (req, res) => {
         }
       }
 
-      try {
-        const route = JSON.parse(javaOutput.trim());
-        res.json({ dLatLng: route });
-      } catch (parseError) {
-        console.error(`parse error: ${parseError}`);
-        if (!res.headersSent) {
+    try {
+      console.log("javaOutput:", javaOutput); // 디버깅을 위해 javaOutput을 출력합니다.
+      const shortestPath = JSON.parse(javaOutput.trim());
+      //좌표 데이터(dLatLng)를 추가하여 반환
+      const dLatLng = shortestPath.map(node => {
+          const loc = locData.find(loc => loc.code === node);
+          return loc ? [loc.latitude, loc.longitude] : [0, 0];
+      });
+      console.log("dLatLng:", dLatLng, "shortestPath:", shortestPath); // 디버깅을 위해 출력합니다.
+      res.json({ dLatLng, shortestPath });
+  } catch (parseError) {
+      console.error(`parse error: ${parseError}`);
+      if (!res.headersSent) {
           return res.status(500).json({ error: 'Internal Server Error' });
         }
       }
