@@ -108,7 +108,7 @@ P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중�
 
 ### 2.5  추진일정  
 
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule.JPG">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule_midreport.JPG">
 
 ### 2.6 참고문헌  
 
