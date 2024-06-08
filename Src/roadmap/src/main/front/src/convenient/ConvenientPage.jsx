@@ -1,8 +1,6 @@
 /*global kakao*/
 import React, { useEffect, useState } from "react";
 import LocList from "../components/buildinginfo";
-import { hideMarker, showMarker } from "../components/Marker";
-
 
 const { kakao } = window;
 const loc = LocList();
@@ -10,19 +8,11 @@ const loc = LocList();
 function ConvenientPage() {
 
     const [map, settingMap] = useState(null);
-    const [render1,setRender1] = useState(true);
-    const [markers, setMarkers] = useState([])
-    const [iW, addIW] = useState([])
-    const [path,setPath] = useState(null)
-    const [stateMarker,setStateMarker] = useState(true)
-    const [convNum, setSelectedValue] = useState('')
+    const [render1, setRender1] = useState(true);
+    const [markers, setMarkers] = useState([]);
+    const [iW, addIW] = useState([]);
+    const [convNum, setSelectedValue] = useState('');
 
-    const addNewMarker = (newMarker) => {
-        setMarkers((prevMarker) => [...prevMarker, newMarker])
-    }
-    const cngMarker = (newMarker) => {
-        setMarkers(newMarker)
-    }
     const getImgAdd = (imgName) => {
         try {
             const imgAdd = require(`../images/convenient/${imgName}`);
@@ -33,17 +23,13 @@ function ConvenientPage() {
     };
 
     useEffect(() => {
-        const markerArray = []
-
-
         const script = document.createElement("script");
         script.async = true;
         script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=d4309b74d8b2fd437e9f76d9b2e75dad&autoload=false';
 
-
         script.onload = () => {
             window.kakao.maps.load(() => {
-                if(render1){
+                if (render1) {
                     const container = document.getElementById('map');
                     const options = {
                         center: new window.kakao.maps.LatLng(37.55803420483414, 127.00088278271602),
@@ -52,25 +38,21 @@ function ConvenientPage() {
                     const newMap = new window.kakao.maps.Map(container, options)
                     settingMap(newMap);
 
-
                     loc.map((building) => {
                         const markerPosition = new window.kakao.maps.LatLng(building.Lat, building.Lng);
                         const newMarker = new window.kakao.maps.Marker({
                             position: markerPosition
                         });
 
-
                         newMarker.setMap(newMap);
                         newMarker.setMap(null);
 
-                        addNewMarker(newMarker);
-                        markerArray.push(newMarker)
-                    })
+                        setMarkers(prevMarkers => [...prevMarkers, newMarker]);
+                    });
 
-                    setRender1(false)
-
+                    setRender1(false);
                 }
-            })
+            });
         };
         document.head.appendChild(script);
         return () => {
@@ -78,116 +60,114 @@ function ConvenientPage() {
         };
     }, []);
 
-
-
+    const panTo = (building) => {
+        var moveLatLon = new kakao.maps.LatLng(building.Lat, building.Lng);
+        map.panTo(moveLatLon);            
+    }
 
     useEffect(() => {
         if (map && markers) {
-            try {
-                if (stateMarker) {
-                    cngMarker(showMarker(map, markers));
-                    path.setMap(map);
-                } else {
-                    cngMarker(hideMarker(map, markers, iW));
-                    path.setMap(null);
-                }
-            } catch {
-                console.log("error");
-            }
-        }
+            markers.forEach(marker => marker.setMap(null));
+            iW.forEach(iw => iw.setMap(null));
 
-        // Clear the previous markers
-        markers.forEach(marker => marker.setMap(null));
-        iW.forEach(iw => iw.setMap(null));
+            if (convNum !== '') {
+                const markerArray = [];
+                const IwArray = [];
 
-        if (map && convNum !== '') {
-            const markerArray = [];
-            const IwArray = [];
+                loc.forEach(building => {
+                    if (building.facilities[convNum] === 1) {
+                        const markerPosition = new window.kakao.maps.LatLng(building.Lat, building.Lng);
+                        const newMarker = new window.kakao.maps.Marker({
+                            position: markerPosition,
+                            clickable: true
+                        });
 
+                        const newInfo = new window.kakao.maps.CustomOverlay({
+                            clickable: false,
+                            map: map,
+                            position: newMarker.getPosition(),
+                            removable: true,
+                            zIndex: 5
+                        });
 
-            loc.forEach(building => {
-                if (building.facilities[convNum] === 1) {
-                    const markerPosition = new window.kakao.maps.LatLng(building.Lat, building.Lng);
-                    const newMarker = new window.kakao.maps.Marker({
-                        position: markerPosition,
-                        clickable: true
-                    });
+                        const convenientImage = building.code + "_" + convNum + ".png";
+                        const imageSrc = getImgAdd(convenientImage);
 
-                    const newInfo = new window.kakao.maps.CustomOverlay({
-                        clickable: false,
-                        map: map,
-                        position: newMarker.getPosition(),
-                        removable: true,
-                        zIndex: 5
-                    })
-                    const convenientImage = building.code + "_" + convNum + ".png"
+                        const wrapperDiv = document.createElement('div');
+                        wrapperDiv.classList.add('overlay-wrapper');
 
-                    const imageSrc = getImgAdd(convenientImage)
-                    console.log(convenientImage)
+                        const barDiv = document.createElement('div');
+                        barDiv.classList.add('overlay-bar');
+                        const xmarkDiv = document.createElement('div');
+                        xmarkDiv.classList.add('xmark');
+                        const iElement = document.createElement('i');
+                        iElement.classList.add('fa-solid', 'fa-xmark');
+                        iElement.addEventListener('click', closeOverlay);
+                        xmarkDiv.appendChild(iElement);
+                        barDiv.appendChild(xmarkDiv);
+                        wrapperDiv.appendChild(barDiv);
 
-                    const wrapperDiv = document.createElement('div');
-                    wrapperDiv.classList.add('overlay-wrapper-onlyimg');
+                        const contentWrapperDiv = document.createElement('div');
+                        contentWrapperDiv.classList.add('overlay-content-wrapper');
 
-                    const barDiv = document.createElement('div');
-                    barDiv.classList.add('overlay-bar');
+                        const imgWrapperDiv = document.createElement('div');
+                        imgWrapperDiv.classList.add('overlay-img-wrapper');
+                        const imgElement = document.createElement('img');
+                        imgElement.src = imageSrc;
+                        imgElement.alt = 'Convenient Image';
+                        imgWrapperDiv.appendChild(imgElement);
+                        contentWrapperDiv.appendChild(imgWrapperDiv);
 
-                    const xmarkDiv = document.createElement('div');
-                    xmarkDiv.classList.add('xmark');
-                    const iElement = document.createElement('i');
-                    iElement.classList.add('fa-solid', 'fa-xmark');
-                    iElement.addEventListener('click', closeOverlay);
-                    xmarkDiv.appendChild(iElement);
+                        const textWrapperDiv = document.createElement('div');
+                        textWrapperDiv.classList.add('overlay-text-wrapper');
 
-                    const imgWrapperDiv = document.createElement('div');
-                    imgWrapperDiv.classList.add('overlay-img-wrapper');
-                    const imgElement = document.createElement('img');
-                    imgElement.src = imageSrc;
-                    imgElement.alt = 'Building Image';
-                    imgWrapperDiv.appendChild(imgElement);
+                        const button = document.createElement('button');
+                        button.textContent = '경로 탐색';
+                        button.addEventListener('click', () => buttonClicked(building.code));
 
-                    barDiv.appendChild(xmarkDiv);
-                    wrapperDiv.appendChild(barDiv);
-                    wrapperDiv.appendChild(imgWrapperDiv);
+                        textWrapperDiv.appendChild(button);
+                        contentWrapperDiv.appendChild(textWrapperDiv);
 
-                    newInfo.setContent(wrapperDiv)
+                        wrapperDiv.appendChild(contentWrapperDiv);
 
-                    newInfo.setMap(null);
-                    IwArray.push(newInfo);
+                        newInfo.setContent(wrapperDiv);
+                        newInfo.setMap(null);
+                        IwArray.push(newInfo);
 
-                    function closeOverlay() {
-                        if (map) {
-                            if (newInfo.getMap() === null) {
-                                newInfo.setMap(map, newMarker)
-                            }
-                            else {
-                                newInfo.setMap(null)
+                        function closeOverlay() {
+                            if (map) {
+                                if (newInfo.getMap() === null) {
+                                    newInfo.setMap(map, newMarker);
+                                } else {
+                                    newInfo.setMap(null);
+                                }
                             }
                         }
+
+                        window.kakao.maps.event.addListener(newMarker, 'click', () => {
+                            closeOverlay();
+                            panTo(building);
+                        });
+
+                        newMarker.setMap(map);
+                        markerArray.push(newMarker);
                     }
+                });
 
-                    window.kakao.maps.event.addListener(newMarker, 'click', function(){
-                        closeOverlay();
-                    });
-
-                    newMarker.setMap(map);
-                    markerArray.push(newMarker);
-                }
-            });
-
-            addIW(IwArray);
-            setMarkers(markerArray);
+                addIW(IwArray);
+                setMarkers(markerArray);
+            }
         }
-    }, [stateMarker, convNum]);
+    }, [convNum, map]);
 
+    const buttonClicked = (id) => {
+        localStorage.setItem('myData', id);
+        window.location.href = '/navigation';
+    };
 
-
-
-
-    const findConv = (e) =>{
+    const findConv = (e) => {
         setSelectedValue(e.target.value);
-    }
-
-
+    };
 
     return (
         <div className="map-wrapper">
@@ -210,8 +190,7 @@ function ConvenientPage() {
                 <div id="map" className="map-style"></div>
             </span>
         </div>
-    )
-
+    );
 }
 
 export default ConvenientPage;
