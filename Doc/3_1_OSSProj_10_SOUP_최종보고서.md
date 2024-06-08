@@ -44,7 +44,7 @@
 * 동국대학교 구조도  
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph_finalreport.png"> 
 
-정보문화관P | 정보문화관Q | 학생회관 | 본관 | 중앙도서관 | 신공학관 | 신공학관 방향 출구 | 원흥관 | 남산학사 | 기숙사식당
+정보문화관P | 정보문화관Q | 학생회관 | 본관 | 중앙도서관 | 신공학관 | 신공학관 <br /> 방향 출구 | 원흥관 | 남산학사 | 기숙사식당
 -----------|------------|----------|-----|-----------|----------|------------------|--------|---------|----------
 P | Q | S | M | L | E | R | W | D | C
 
@@ -90,7 +90,9 @@ P | Q | S | M | L | E | R | W | D | C
         * 서버 도입으로 해결
     * 네비게이션 기능 자체의 오류로 작동하지 않음
         * 네비게이션 파트 코드를 처음부터 재작성
-        * 네비게이션 프로그램 실행 결과 중간 노드값은 출력 되나 지도상에 마커가 찍히지 않는 오류 발생  
+        * 네비게이션 프로그램 실행 결과 중간 노드값은 출력 되나 지도상에 마커와 경로가 찍히지 않는 오류 발생  
+        * 좌표 데이터가 같이 오지 않는 오류를 발견
+        * 좌표 데이터 호출 및 관련 코드 수정으로 해결
 
 <br />  
 
@@ -99,7 +101,7 @@ P | Q | S | M | L | E | R | W | D | C
     * M = mass, g = gravity, f = rolling resistent coefficient, α = slope(%), V = speed, η = efficiency of motor, L = length
 * 공간 정보를 활용한 길찾기: 기존의 길찾기에서는 특정 지점에서 다른 지점으로의 경로는 계산하지만 높이는 고려하지 않는다. 동국대학교 휠체어 네비게이션은 동국대학교의 건물들의 입구가 하나가 아닌 여러 층에 있다. 따라서 건물으로의 도착만이 아닌 건물 내의 특정 공간으로의 이동을 목적으로 하기 때문에 층수와 입구 또한 고려해야한다. 따라서 기존의 네비게이션과는 달리 공간적 데이터를 이용하는 방법으로 네비게이션을 구현하였다. 다만 이 과정에서 동국대학교 전체에 대한 공간데이터를 구축하려면 많은 시간이 걸리기 때문에 일단 작은 범위를 설정하였다. 
 
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule_finalreport.jpg">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule_finalreport.JPG">
 
 ### 4. 기대효과  
 
