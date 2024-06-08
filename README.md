@@ -35,7 +35,7 @@
 ### 최종 결과물
  메인 페이지(MAIN) | 길찾기 페이지(NAV)
  -------------------------|------------------------------
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/main_page.png"> | 추가 예정
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/main_page.png"> | <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/nav_page.png">
 
  건물정보 페이지(INFO) | 편의시설 페이지(CONVENIENT)
  -------------------------|------------------------------
