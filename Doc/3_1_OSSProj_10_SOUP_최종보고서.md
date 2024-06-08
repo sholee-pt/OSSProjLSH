@@ -42,7 +42,7 @@
 ### 2. 최종결과물 소개  
 
 * 동국대학교 구조도  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph_midreport.png">  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph_finalreport.png">  
 P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중앙도서관, E: 신공학관, W: 원흥관, D: 남산학사, C: 기숙사식당, R: 신공학관 방향 출구 / 알파벳 뒤 숫자는 층수를 의미  
 
 * 최종결과물의 주요 목록을 소개하고, 주요 항목별 관련 사진 또는 그림을 필히 제시하고 설명한다.  
