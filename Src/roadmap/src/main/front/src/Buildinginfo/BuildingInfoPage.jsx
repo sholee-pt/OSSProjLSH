@@ -2,18 +2,13 @@
 import React, { useEffect, useState } from "react";
 import LocList from "../components/buildinginfo";
 
-
-
 const { kakao } = window;
 const loc = LocList();
-
-
 
 function BuildingInfoPage() {
 
     const [map, settingMap] = useState(null);
     const [render1, setRender1] = useState(true);
-
 
     const getImgAdd = (imgName) => {
         try {
@@ -24,13 +19,16 @@ function BuildingInfoPage() {
         }
     };
 
-    useEffect(() => {
+    const panTo = (building) => {
+        var moveLatLon = new kakao.maps.LatLng(building.Lat, building.Lng);
+        map.panTo(moveLatLon);            
+    }
 
+    useEffect(() => {
 
         const script = document.createElement("script");
         script.async = true;
         script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=d4309b74d8b2fd437e9f76d9b2e75dad&autoload=false';
-
 
         script.onload = () => {
             window.kakao.maps.load(() => {
@@ -51,14 +49,12 @@ function BuildingInfoPage() {
                     var zoomControl = new window.kakao.maps.ZoomControl();
                     newMap.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
 
-
                     setRender1(false)
 
                 }
 
             })
         };
-
 
         document.head.appendChild(script);
         return () => {
@@ -75,7 +71,6 @@ function BuildingInfoPage() {
                     position: markerPosition,
                     zIndex : 4
                 });
-
 
                 newMarker.setMap(map);
 
@@ -131,11 +126,11 @@ function BuildingInfoPage() {
                 const button = document.createElement('button');
                 button.textContent = '경로 탐색';
                 button.addEventListener('click', () => buttonClicked(building.code));
+                textWrapperDiv.appendChild(button);
                 textWrapperDiv.appendChild(facilitiesParagraph);
                 textWrapperDiv.appendChild(explainParagraph);
                 textWrapperDiv.appendChild(locationParagraph);
                 contentWrapperDiv.appendChild(textWrapperDiv);
-                textWrapperDiv.appendChild(button);
                 wrapperDiv.appendChild(contentWrapperDiv);
 
                 function closeOverlay() {
@@ -153,7 +148,10 @@ function BuildingInfoPage() {
 
                 newInfoWindow.setMap(null)
 
-                window.kakao.maps.event.addListener(newMarker, 'click', closeOverlay)
+                window.kakao.maps.event.addListener(newMarker, 'click', () => {
+                    closeOverlay();
+                    panTo(building);
+                });
             })
         }
     }, [map]);
