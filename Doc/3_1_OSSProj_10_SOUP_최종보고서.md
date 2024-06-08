@@ -42,8 +42,13 @@
 ### 2. 최종결과물 소개  
 
 * 동국대학교 구조도  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph_finalreport.png">  
-P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중앙도서관, E: 신공학관, W: 원흥관, D: 남산학사, C: 기숙사식당, R: 신공학관 방향 출구 / 알파벳 뒤 숫자는 층수를 의미  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/graph_finalreport.png"> 
+
+정보문화관P | 정보문화관Q | 학생회관 | 본관 | 중앙도서관 | 신공학관 | 신공학관 방향 출구 | 원흥관 | 남산학사 | 기숙사식당
+-----------|------------|----------|-----|-----------|----------|------------------|--------|---------|----------
+P | Q | S | M | L | E | R | W | D | C
+
+> 알파벳 뒤 숫자는 층수를 의미  
 
 * 최종결과물의 주요 목록을 소개하고, 주요 항목별 관련 사진 또는 그림을 필히 제시하고 설명한다.  
 
@@ -59,10 +64,10 @@ P: 정보문화관 P, Q: 정보문화관 Q, S: 학생회관, M: 본관, L: 중�
 * '휠비'라는 휠체어 네비게이션 앱의 경우 휠체어가 안전하게 다닐 수 있는 경로를 제시하지만 동국대학교 내의 건물이 검색되지 않았다. 또, 실제로 휠체어가 지나갈 수 없는 경로를 안내하는 경우도 있었다.  
 
 * 유스케이스 다이어그램(Usecase Diagram)  
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_midreport.jpg">  
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/usecase_finalreport.jpg">  
 
 * 블록 다이어그램(Block Diagram)
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block_midreport.jpg">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/block_finalreport.jpg">
 
 * 시퀀스 다이어그램(Sequence Diagram) 
 <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/sequence.jpg">
