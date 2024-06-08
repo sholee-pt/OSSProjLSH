@@ -2,7 +2,7 @@
 
 ## 범위/일정 관리  
 
-<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule_finalreport.jpg">
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule_finalreport.JPG">
 
 일정관리표 바로가기: [구글 스프레드 시트](https://docs.google.com/spreadsheets/d/1ZgVCbwnMooV5keFKf5sFHki4f45VoOQRasOnbdF3GfY/edit#gid=133022494) 
 
@@ -41,8 +41,12 @@
         - 서버 도입으로 해결
     - 네비게이션 기능 자체의 오류로 작동하지 않음
         - 네비게이션 파트 코드를 처음부터 재작성
-- [ ] 네비게이션 기능 오류
+- [X] 네비게이션 기능 오류
     - 네비게이션 프로그램 실행 결과 중간 노드값은 출력 되나 지도상에 마커가 찍히지 않는 오류 발생
+    - 위도 경도 데이터가 불러오지 않는 오류 수정
+        - 좌표 데이터가 불러와지지 않음을 확인
+        - 가상 좌표를 찍어서 작동 확인
+        - 데이터에서 좌표를 불러오고 코드 수정으로 해결
     
 
 ## README.md로 돌아가기
