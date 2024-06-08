@@ -21,8 +21,25 @@
 
 기존 프로젝트: [동국대학교 편한 길 찾기](https://github.com/CSID-DGU/2023-2-OSSP1-Entity-5)  
 
+### 기대효과  
+
+* 전력 기반 경로 최적화  
+   * 시간이나 거리가 아닌 전력 소비를 최소화하여, 전동 휠체어 사용자가 가장 효율적으로 이동할 수 있는 경로 제공  
+* 이동 편의성 증대  
+   * 캠퍼스 내에서 휠체어 사용자의 자유로운 이동을 가능하게 하여 일상 생활의 질 향상  
+* 접근성 개선  
+   * 계단이나 경사로를 피하는 경로 선택으로 모든 건물 및 시설 접근 용이  
+* 사회적 포용성 강화  
+   * 장애를 가진 학생 및 방문객에게 평등한 교육 및 체험 기회 제공 
+
 ### 최종 결과물
- *최종 사진 추가 예정*
+ 메인 페이지(MAIN) | 길찾기 페이지(NAV)
+ -------------------------|------------------------------
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/main_page.png"> | 추가 예정
+
+ 건물정보 페이지(INFO) | 편의시설 페이지(CONVENIENT)
+ -------------------------|------------------------------
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/building_page.png"> | <img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/conv_page.png">
 
  [프로젝트 시연 동영상]()
 
@@ -45,8 +62,7 @@
 ### Tech Stack
 <img src="https://img.shields.io/badge/Intellij-000000?style=flat-square&logo=intellijidea&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
 
-<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img   src="https://img.shields.io/badge/Node.js-%235FA04E?style=flat-square&logo=node.js&logoColor=black
-"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img   src="https://img.shields.io/badge/Node.js-%235FA04E?style=flat-square&logo=node.js&logoColor=black"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/>
 
 ### 프로그램 요구사항 및 실행 방법
 
@@ -59,4 +75,3 @@
 3. [범위/일정 및 이슈 관리](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_1_OSSProj_10_SOUP_%EB%B2%94%EC%9C%84_%EC%9D%BC%EC%A0%95_%EC%9D%B4%EC%8A%88%EA%B4%80%EB%A6%AC.md)
 4. [회의록](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_2_OSSProj_10_SOUP_%ED%9A%8C%EC%9D%98%EB%A1%9D.md)
 5. [제품의 구성, 배포 및 운영 관련 문서 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_3_OSSProj_10_SOUP_%EC%A0%9C%ED%92%88%EA%B5%AC%EC%84%B1%EB%B0%B0%ED%8F%AC%EC%9A%B4%EC%98%81%EC%9E%90%EB%A3%8C.md)
-

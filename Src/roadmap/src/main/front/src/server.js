@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { spawn } = require('child_process');
 const path = require('path');
-const fs = require('fs');
+const os = require('os');
 const app = express();
 const port = 8080;
 
@@ -22,88 +22,89 @@ app.get('/map', (req, res) => {
         return res.status(400).json({ error: 'Invalid parameters' });
     }
 
-  // Gradle Wrapper 경로 설정
-  const gradlewPath = path.join(projectRoot, 'gradlew');
+    // Gradle Wrapper 경로 설정
+    const gradlewPath = path.join(projectRoot, 'gradlew');
 
-  // 빌드 명령어 (Gradle Wrapper 사용)
-  const gradlew = spawn(gradlewPath, ['bootJar', '--stacktrace'], { cwd: projectRoot });
+    // 빌드 명령어 (Gradle Wrapper 사용)
+    const gradlew = spawn(gradlewPath, ['bootJar', '--stacktrace'], { cwd: projectRoot });
 
-  gradlew.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
-  });
-
-  gradlew.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
-  });
-
-  gradlew.on('error', (error) => {
-    console.error(`gradlew error: ${error.message}`);
-    if (!res.headersSent) {
-      return res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
-
-  gradlew.on('close', (code) => {
-    if (code !== 0) {
-      if (!res.headersSent) {
-        return res.status(500).json({ error: 'Internal Server Error' });
-      }
-    }
-
-    // Java 명령어 경로 설정
-    const javaPath = path.join('/Users/ddinga/.sdkman/candidates/java/current/bin', 'java');
-
-    // Fat JAR 파일 경로 설정
-    const jarPath = path.join(buildDir, 'app.jar');
-
-    // Java 프로그램을 Fat JAR로 실행
-    const java = spawn(javaPath, ['-jar', jarPath, start, finish], { cwd: projectRoot });
-
-    let javaOutput = '';
-
-    java.stdout.on('data', (data) => {
-        console.log(`java stdout: ${data}`);
-      javaOutput += data;
+    gradlew.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
     });
 
-    java.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
+    gradlew.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
     });
 
-    java.on('error', (error) => {
-      console.error(`java error: ${error.message}`);
-      if (!res.headersSent) {
-        return res.status(500).json({ error: 'Internal Server Error' });
-      }
-    });
-
-    java.on('close', (code) => {
-      if (code !== 0) {
+    gradlew.on('error', (error) => {
+        console.error(`gradlew error: ${error.message}`);
         if (!res.headersSent) {
-          return res.status(500).json({ error: 'Internal Server Error' });
+            return res.status(500).json({ error: 'Internal Server Error' });
         }
-      }
-
-    try {
-      console.log("javaOutput:", javaOutput); // 디버깅을 위해 javaOutput을 출력합니다.
-      const shortestPath = JSON.parse(javaOutput.trim());
-      //좌표 데이터(dLatLng)를 추가하여 반환
-      const dLatLng = shortestPath.map(node => {
-          const loc = locData.find(loc => loc.code === node);
-          return loc ? [loc.latitude, loc.longitude] : [0, 0];
-      });
-      console.log("dLatLng:", dLatLng, "shortestPath:", shortestPath); // 디버깅을 위해 출력합니다.
-      res.json({ dLatLng, shortestPath });
-  } catch (parseError) {
-      console.error(`parse error: ${parseError}`);
-      if (!res.headersSent) {
-          return res.status(500).json({ error: 'Internal Server Error' });
-        }
-      }
     });
-  });
-});
+
+    gradlew.on('close', (code) => {
+        if (code !== 0) {
+            if (!res.headersSent) {
+                return res.status(500).json({ error: 'Internal Server Error' });
+            }
+        }
+
+        // 사용자 홈 디렉토리 경로 가져오기
+        const homeDir = os.homedir();
+        const javaPath = path.join(homeDir, '.sdkman/candidates/java/current/bin', 'java');
+
+        // Fat JAR 파일 경로 설정
+        const jarPath = path.join(buildDir, 'app.jar');
+
+        // Java 프로그램을 Fat JAR로 실행
+        const java = spawn(javaPath, ['-jar', jarPath, start, finish], { cwd: projectRoot });
+
+        let javaOutput = '';
+
+        java.stdout.on('data', (data) => {
+            console.log(`java stdout: ${data}`);
+            javaOutput += data;
+        });
+
+        java.stderr.on('data', (data) => {
+            console.error(`stderr: ${data}`);
+        });
+
+        java.on('error', (error) => {
+            console.error(`java error: ${error.message}`);
+            if (!res.headersSent) {
+                return res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
+
+        java.on('close', (code) => {
+            if (code !== 0) {
+                if (!res.headersSent) {
+                    return res.status(500).json({ error: 'Internal Server Error' });
+                }
+            }
+
+            try {
+                console.log("javaOutput:", javaOutput); // 디버깅을 위해 javaOutput을 출력합니다.
+                const shortestPath = JSON.parse(javaOutput.trim());
+                //좌표 데이터(dLatLng)를 추가하여 반환
+                const dLatLng = shortestPath.map(node => {
+                    const loc = locData.find(loc => loc.code === node);
+                    return loc ? [loc.latitude, loc.longitude] : [0, 0];
+                });
+                console.log("dLatLng:", dLatLng, "shortestPath:", shortestPath); // 디버깅을 위해 출력합니다.
+                res.json({ dLatLng, shortestPath });
+            } catch (parseError) {
+                console.error(`parse error: ${parseError}`);
+                if (!res.headersSent) {
+                    return res.status(500).json({ error: 'Internal Server Error' });
+                  }
+                }
+              });
+            });
+          });
 
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });

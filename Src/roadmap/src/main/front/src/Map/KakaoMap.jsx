@@ -207,14 +207,7 @@ function KakaoMap({ start, finish }) {
         }
     }, [map, searchClicked, dLatLng, shortestPath, createMarker, drawPath]);
 
-    // const getImgAdd = (imgName) => {
-    //     try {
-    //         const imgAdd = require(`../images/${imgName}`);
-    //         return imgAdd;
-    //     } catch (error) {
-    //         return null;
-    //     }
-    // };
+
     const getImgAdd = (imgName) => {
         try {
             return require(`../images/${imgName}`).default;
@@ -260,7 +253,7 @@ function KakaoMap({ start, finish }) {
                                 console.log("Setting image, shortestPath and dLatLng with data:", nestedList);
                                 
                                 setShortestPath(nestedList.shortestPath);
-                                // setDLatLng(nestedList.dLatLng.map(coord => coord.split(',')));
+                                
                                 setDLatLng(nestedList.dLatLng)
                                 setSearchClicked(true);
                             } else {
@@ -287,7 +280,6 @@ export default KakaoMap;
 
 
 
-// /*global kakao*/
 // import React, { useEffect, useState } from "react";
 // import axios from "axios";
 // import LocList from "../components/buildinginfo";
@@ -317,6 +309,8 @@ export default KakaoMap;
 //     const [image, setImage] = useState([]);
 //     const [evMarkers, setEvMarkers] = useState([]);
 //     const [selectedRadio, setSelectedRadio] = useState('');
+//     const [startMarker, setStartMarker] = useState(null);
+//     const [finishMarker, setFinishMarker] = useState(null);
 
 //     const cngMarker = (newMarker) => {
 //         setMarkers(newMarker);
@@ -560,12 +554,12 @@ export default KakaoMap;
 //                         parseFloat(nestedList[i + 1][0]),
 //                         parseFloat(nestedList[i + 1][1])
 //                     );
-//                     const newLine = drawLine(map, startLatLng, finishLatLng); // Draw each line of the new path
+//                     const newLine = drawLine(map, startLatLng, finishLatLng); // drawLine 함수 사용
 //                     newPath.push(newLine);
 //                 }
 //                 setPath(newPath); // Set the new path in the state variable
-//             } catch {
-//                 console.log("drawPath error");
+//             } catch (error) {
+//                 console.log("drawPath error:", error);
 //             }
 //         }
 //     }
@@ -584,22 +578,23 @@ export default KakaoMap;
 //                     finish: finish
 //                 }
 //             })
-//                 .then(response => {
-//                     const nestedList = response.data;
+//             .then(response => {
+//                 const nestedList = response.data;
 
-//                     setImage(nestedList.image);
-//                     setShortestPath(nestedList.shortestPath);
-//                     setDLatLng(nestedList.dLatLng);
-//                     setSearchClicked(true);
-//                 })
-//                 .catch(error => {
-//                     console.error('Error:', error.message);
-//                     if (error.response) {
-//                         console.error('Error Response Data:', error.response.data);
-//                         console.error('Error Response Status:', error.response.status);
-//                         console.error('Error Response Headers:', error.response.headers);
-//                     }
-//                 });
+//                 setImage(nestedList.image);
+//                 setShortestPath(nestedList.shortestPath);
+//                 setDLatLng(nestedList.dLatLng);
+//                 drawPath(nestedList.dLatLng); // 경로를 그리는 함수 호출
+//                 setSearchClicked(true);
+//             })
+//             .catch(error => {
+//                 console.error('Error:', error.message);
+//                 if (error.response) {
+//                     console.error('Error Response Data:', error.response.data);
+//                     console.error('Error Response Status:', error.response.status);
+//                     console.error('Error Response Headers:', error.response.headers);
+//                 }
+//             });
 //         }
 //     };
 
@@ -615,6 +610,46 @@ export default KakaoMap;
 //         const tempStart = start;
 //         SetStart(finish);
 //         SetFinish(tempStart);
+//     };
+
+//     const handleStartChange = (e) => {
+//         const selectedValue = e.target.value;
+//         SetStart(selectedValue);
+//         if (map && startMarker) {
+//             startMarker.setMap(null); // 기존 출발지 마커 제거
+//         }
+//         const selectedLocation = loc.find(location => location.code === selectedValue);
+//         if (selectedLocation) {
+//             const markerPosition = new kakao.maps.LatLng(selectedLocation.Lat, selectedLocation.Lng);
+//             const newMarker = new kakao.maps.Marker({
+//                 position: markerPosition,
+//                 map: map
+//             });
+//             setStartMarker(newMarker);
+//             console.log("Start marker added at:", markerPosition); // 디버깅 메시지 추가
+//         } else {
+//             console.error("Selected start location not found:", selectedValue);
+//         }
+//     };
+
+//     const handleFinishChange = (e) => {
+//         const selectedValue = e.target.value;
+//         SetFinish(selectedValue);
+//         if (map && finishMarker) {
+//             finishMarker.setMap(null); // 기존 도착지 마커 제거
+//         }
+//         const selectedLocation = loc.find(location => location.code === selectedValue);
+//         if (selectedLocation) {
+//             const markerPosition = new kakao.maps.LatLng(selectedLocation.Lat, selectedLocation.Lng);
+//             const newMarker = new kakao.maps.Marker({
+//                 position: markerPosition,
+//                 map: map
+//             });
+//             setFinishMarker(newMarker);
+//             console.log("Finish marker added at:", markerPosition); // 디버깅 메시지 추가
+//         } else {
+//             console.error("Selected finish location not found:", selectedValue);
+//         }
 //     };
 
 //     return (
@@ -644,19 +679,14 @@ export default KakaoMap;
 //                 </label>
 //             </div>
 //             <div className="controller-wrapper">
-//                 <select className="box-style" value={start} onChange={(e) => {
-//                     SetStart(e.target.value);
-//                 }}>
+//                 <select className="box-style" value={start} onChange={handleStartChange}>
 //                     <option value="" disabled>출발지 선택</option>
 //                     {loc.map((building) => <option key={building.code} value={building.code}>{building.id}</option>)}
 //                 </select>
 //                 <button className="switch-button" onClick={switchStartFinish}>
 //                     <img src={changeBoth} alt="Switch" className="switch-button-img" />
 //                 </button>
-//                 <select className="box-style" value={finish} onChange={(e) => {
-//                     const selectedValue = e.target.value;
-//                     SetFinish(selectedValue);
-//                 }}>
+//                 <select className="box-style" value={finish} onChange={handleFinishChange}>
 //                     <option value="" disabled>도착지 선택</option>
 //                     {loc.map((building) => (
 //                         <option

@@ -2,6 +2,8 @@
 
 ## 범위/일정 관리  
 
+<img width="550" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/schedule_finalreport.jpg">
+
 일정관리표 바로가기: [구글 스프레드 시트](https://docs.google.com/spreadsheets/d/1ZgVCbwnMooV5keFKf5sFHki4f45VoOQRasOnbdF3GfY/edit#gid=133022494) 
 
 ## 이슈 관리  
