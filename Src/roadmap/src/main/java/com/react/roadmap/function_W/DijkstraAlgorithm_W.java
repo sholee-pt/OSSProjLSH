@@ -1,4 +1,4 @@
-package com.react.roadmap.function;
+package com.react.roadmap.function_W;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.react.roadmap.data.Node;
@@ -7,11 +7,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class DijkstraAlgorithm {
+public class DijkstraAlgorithm_W {
 
     public static void main(String[] args) {
         if (args.length < 2) {
-            System.out.println("Usage: DijkstraAlgorithm <startNode> <finishNode>");
+            System.out.println("Usage: DijkstraAlgorithm_W <startNode> <finishNode>");
             return;
         }
 
@@ -19,7 +19,7 @@ public class DijkstraAlgorithm {
         String finishNode = args[1];
 
         // 프로젝트 구조에 맞는 파일 경로 설정
-        String filePath = "src/main/resources/static/json/node.json";
+        String filePath = "src/main/resources/static/json/node_W.json";
         Node[] nodes = loadNodesFromFile(filePath);
 
         if (nodes == null) {
@@ -27,7 +27,7 @@ public class DijkstraAlgorithm {
             return;
         }
 
-        DijkstraAlgorithm algorithm = new DijkstraAlgorithm();
+        DijkstraAlgorithm_W algorithm = new DijkstraAlgorithm_W();
         List<String> shortestPath = algorithm.findShortestPath(nodes, startNode, finishNode);
 
         ObjectMapper objectMapper = new ObjectMapper();

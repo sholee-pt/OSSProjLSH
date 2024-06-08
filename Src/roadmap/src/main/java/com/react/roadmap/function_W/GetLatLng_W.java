@@ -1,9 +1,9 @@
-package com.react.roadmap.function;
+package com.react.roadmap.function_W;
 
 import java.util.*;
 import com.react.roadmap.data.Node;
 
-public class GetLatLng {
+public class GetLatLng_W {
     public List<List<Double>> getLatLng(Node[] nodes, List<String> shortestPath){
         // 노드를 빠르게 검색하기 위해 Map을 사용합니다.
         Map<String, Node> nodeMap = new HashMap<>();
