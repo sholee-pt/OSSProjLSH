@@ -3,7 +3,6 @@ const cors = require('cors');
 const { spawn } = require('child_process');
 const path = require('path');
 const os = require('os');
-const fs = require('fs')
 const app = express();
 const port = 8080;
 const fs = require('fs');
@@ -39,10 +38,10 @@ app.get('/map', (req, res) => {
     const locData = JSON.parse(fs.readFileSync(locDataPath, 'utf-8'));
 
     // Gradle Wrapper 경로 설정
-    const gradlewPath = path.join(projectRoot, 'gradlew');
+    const gradlewPath = path.join(projectRoot, 'gradlew.bat');
 
     // 빌드 명령어 (Gradle Wrapper 사용)
-    const gradlew = spawn(gradlewPath, ['bootJar', '--stacktrace'], { cwd: projectRoot });
+    const gradlew = spawn('cmd', ['/c', gradlewPath, 'bootJar', '--stacktrace'], { cwd: projectRoot });
 
     gradlew.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
@@ -68,7 +67,7 @@ app.get('/map', (req, res) => {
 
         // 사용자 홈 디렉토리 경로 가져오기
         const homeDir = os.homedir();
-        const javaPath = path.join(homeDir, '.sdkman/candidates/java/current/bin', 'java');
+        const javaPath = path.join(homeDir, '.sdkman/candidates/java/current/bin', 'java.exe');
 
         // Fat JAR 파일 경로 설정
         const jarPath = path.join(buildDir, 'app.jar');

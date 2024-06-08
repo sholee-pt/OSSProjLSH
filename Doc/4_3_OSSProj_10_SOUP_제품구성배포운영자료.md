@@ -2,11 +2,9 @@
 
 ## 1. 프로젝트 제품 구성
 
-[Overview](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_4_OSSProj_10_SOUP_Overview.md) 파일 참조
+[Overview](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Src/Overview.md) 파일 참조
   
 ## 2. 프로젝트 제품 배포 방법  
-
-build 후 작성 예정
 
 ### 직접 설치 방법
 1. Node.js [설치](https://nodejs.org/en/download)  
