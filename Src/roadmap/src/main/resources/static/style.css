@@ -164,7 +164,7 @@ select option [value = ""][disabled]{
     font-family: 'neon';
     text-decoration: none;
     color: rgb(0, 0, 0);
-    font-size: 0.6rem;
+    font-size: 0.67rem;
 }
 .overlay-wrapper *{
     padding:0;
@@ -174,7 +174,7 @@ select option [value = ""][disabled]{
 .overlay-wrapper .overlay-bar{
     display:flex;
     padding:10px;
-    background-color: cadetblue;
+    background-color: #857C76;
     align-items: center;
     justify-content: space-between;
     height : 2rem;
@@ -187,6 +187,9 @@ select option [value = ""][disabled]{
 .overlay-wrapper .overlay-bar h{
     margin: 5px;
     font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
 }
 .overlay-wrapper .overlay-content-wrapper{
     display: flex;
@@ -236,7 +239,7 @@ select option [value = ""][disabled]{
 .overlay-wrapper-onlyimg .overlay-bar{
     display:flex;
     padding:10px;
-    background-color: cadetblue;
+    background-color: #857C76;
     align-items: center;
     justify-content: space-between;
     height : 2rem;
@@ -411,8 +414,8 @@ p {
 }
 
 .radio-label img {
-    width: 3.2vw; 
-    height: 3.2vw;
+    width: 3.5vw; 
+    height: 3.5vw;
     border-radius: 10px;
 }
 
@@ -447,7 +450,6 @@ p {
     height: 30px;
     border-radius: 5px;
 }
-
 
 /*모바일 메뉴*/
 .dropdown_menu {
