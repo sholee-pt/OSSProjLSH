@@ -4,7 +4,7 @@
 //     id 'java'
 //     id 'org.springframework.boot' version '3.0.6'
 //     id 'io.spring.dependency-management' version '1.1.0'
-//     id 'application' // 추가
+//     id 'application'
 // }
 
 // group = 'com.react'
@@ -23,7 +23,7 @@
 
 // dependencies {
 //     implementation 'org.springframework.boot:spring-boot-starter-web'
-//     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+//     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
 //     compileOnly 'org.projectlombok:lombok'
 //     runtimeOnly 'com.mysql:mysql-connector-j'
 //     annotationProcessor 'org.projectlombok:lombok'
@@ -33,7 +33,7 @@
 // }
 
 // application {
-//     mainClass = 'com.react.roadmap.function.DijkstraAlgorithm' // 실제 메인 클래스의 경로로 수정
+//     mainClass = 'com.react.roadmap.function.DijkstraAlgorithm'
 // }
 
 // tasks.named('test') {
@@ -44,7 +44,8 @@
 
 // sourceSets {
 //     main {
-//         resources { srcDirs = ["$projectDir/src/main/resources"]
+//         resources {
+//             srcDirs = ["$projectDir/src/main/resources"]
 //         }
 //     }
 // }
@@ -86,6 +87,14 @@
 //     options.encoding = 'UTF-8'
 //     options.compilerArgs += ['-parameters']
 // }
+
+// // 추가된 섹션: Fat JAR 생성
+// bootJar {
+//     archiveFileName = 'app.jar'
+//     mainClassName = 'com.react.roadmap.function.DijkstraAlgorithm'
+//     launchScript()
+// }
+
 
 plugins {
     id 'java'
@@ -175,9 +184,24 @@ tasks.withType(JavaCompile) {
     options.compilerArgs += ['-parameters']
 }
 
-// 추가된 섹션: Fat JAR 생성
+// 걷기 모드용 JAR 파일 생성
 bootJar {
     archiveFileName = 'app.jar'
-    mainClassName = 'com.react.roadmap.function.DijkstraAlgorithm'
+    mainClass = 'com.react.roadmap.function.DijkstraAlgorithm'
     launchScript()
+}
+
+// 휠체어 모드용 JAR 파일 생성
+task wheelchairBootJar(type: org.springframework.boot.gradle.tasks.bundling.BootJar) {
+    archiveFileName = 'app_wheelchair.jar'
+    mainClass = 'com.react.roadmap.function_W.DijkstraAlgorithm_W'
+    targetJavaVersion = JavaVersion.VERSION_17
+    classpath = sourceSets.main.runtimeClasspath
+    launchScript()
+}
+
+// 빌드 시 두 개의 JAR 파일 생성
+tasks.build {
+    dependsOn bootJar
+    dependsOn wheelchairBootJar
 }

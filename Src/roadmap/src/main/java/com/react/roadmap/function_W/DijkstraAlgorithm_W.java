@@ -1,7 +1,9 @@
+
+
 package com.react.roadmap.function_W;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.react.roadmap.data.Node;
+import com.react.roadmap.data.Node_W;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +22,7 @@ public class DijkstraAlgorithm_W {
 
         // 프로젝트 구조에 맞는 파일 경로 설정
         String filePath = "src/main/resources/static/json/node_W.json";
-        Node[] nodes = loadNodesFromFile(filePath);
+        Node_W[] nodes = loadNodesFromFile(filePath);
 
         if (nodes == null) {
             System.out.println("Failed to load nodes.");
@@ -39,31 +41,31 @@ public class DijkstraAlgorithm_W {
         }
     }
 
-    private static Node[] loadNodesFromFile(String filePath) {
+    private static Node_W[] loadNodesFromFile(String filePath) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return objectMapper.readValue(new File(filePath), Node[].class);
+            return objectMapper.readValue(new File(filePath), Node_W[].class);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public List<String> findShortestPath(Node[] nodes, String startNode, String finishNode) {
+    public List<String> findShortestPath(Node_W[] nodes, String startNode, String finishNode) {
         Map<String, Double> distanceMap = new HashMap<>();
         Map<String, String> previousNodeMap = new HashMap<>();
         Set<String> visitedNodes = new HashSet<>();
 
-        for (Node node : nodes) {
+        for (Node_W node : nodes) {
             distanceMap.put(node.getCode(), Double.POSITIVE_INFINITY);
         }
         distanceMap.put(startNode, 0.0);
 
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>(Comparator.comparingDouble(node -> distanceMap.get(node.getCode())));
+        PriorityQueue<Node_W> priorityQueue = new PriorityQueue<>(Comparator.comparingDouble(node -> distanceMap.get(node.getCode())));
         priorityQueue.offer(getNodeByCode(nodes, startNode));
 
         while (!priorityQueue.isEmpty()) {
-            Node currentNode = priorityQueue.poll();
+            Node_W currentNode = priorityQueue.poll();
             if (currentNode == null) {
                 continue;
             }
@@ -114,7 +116,7 @@ public class DijkstraAlgorithm_W {
         return shortestPath;
     }
 
-    private String getNodeProperty(Node node, String propertyName) {
+    private String getNodeProperty(Node_W node, String propertyName) {
         try {
             return (String) node.getClass().getMethod("get" + capitalizeFirstLetter(propertyName)).invoke(node);
         } catch (Exception e) {
@@ -123,7 +125,7 @@ public class DijkstraAlgorithm_W {
         }
     }
 
-    private double getNodePropertyDouble(Node node, String propertyName) {
+    private double getNodePropertyDouble(Node_W node, String propertyName) {
         try {
             return (double) node.getClass().getMethod("get" + capitalizeFirstLetter(propertyName)).invoke(node);
         } catch (Exception e) {
@@ -132,8 +134,8 @@ public class DijkstraAlgorithm_W {
         }
     }
 
-    private Node getNodeByCode(Node[] nodes, String code) {
-        for (Node node : nodes) {
+    private Node_W getNodeByCode(Node_W[] nodes, String code) {
+        for (Node_W node : nodes) {
             if (node.getCode().equals(code)) {
                 return node;
             }
@@ -145,3 +147,5 @@ public class DijkstraAlgorithm_W {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 }
+
+

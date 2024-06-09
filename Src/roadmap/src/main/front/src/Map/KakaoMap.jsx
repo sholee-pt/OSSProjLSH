@@ -12,6 +12,7 @@ import walk2 from "../components/walk2.png";
 import wheel1 from "../components/wheel1.png";
 import wheel2 from "../components/wheel2.png";
 import changeBoth from "../components/change.png";
+import moveCenter from "../components/moveCenter";
 
 function KakaoMap({ start, finish }) {
     const storedData = localStorage.getItem('myData');
@@ -26,11 +27,11 @@ function KakaoMap({ start, finish }) {
     const [finishLocation, setFinishLocation] = useState(finish || storedData || "");
     const [image, setImage] = useState([]);
     const [evMarkers, setEvMarkers] = useState([]);
-    const [selectedRadio, setSelectedRadio] = useState('normal'); // 기본값은 걷기 모드
+    const [selectedRadio, setSelectedRadio] = useState(null); // 기본값 없음
     const [startMarker, setStartMarker] = useState(null);
     const [finishMarker, setFinishMarker] = useState(null);
-    const [nodeData, setNodeData] = useState(walkData); // 기본값은 걷기 모드 데이터
-    const [loc, setLoc] = useState(LocListWalk()); // 기본값은 걷기 모드 건물 리스트
+    const [nodeData, setNodeData] = useState(null); // 기본값 없음
+    const [loc, setLoc] = useState([]); // 기본값 없음
 
     const SetStart = (value) => {
         setStartLocation(value);
@@ -269,6 +270,8 @@ function KakaoMap({ start, finish }) {
 
                     const newMap = new window.kakao.maps.Map(container, options);
                     settingMap(newMap);
+                    // 모드에 따라 중앙을 이동
+                    moveCenter(newMap, selectedRadio);
 
                     const mapTypeControl = new window.kakao.maps.MapTypeControl();
                     newMap.addControl(mapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
@@ -296,7 +299,7 @@ function KakaoMap({ start, finish }) {
             path.forEach((line) => line.setMap(null));
             setPath([]);
         }
-    }, [map, markers, iW, path, cngMarker]);
+    }, [map, markers, iW, path, cngMarker, selectedRadio]);
 
     useEffect(() => {
         if (map && searchClicked) {
@@ -324,6 +327,33 @@ function KakaoMap({ start, finish }) {
             window.alert("모드를 먼저 선택하세요.");
         } else if (!startLocation || !finishLocation) {
             window.alert('출발지와 목적지를 설정해주세요.');
+        } else {
+            console.log("Searching path with:", startLocation, finishLocation, "mode:", selectedRadio);
+            axios.get('/map', {
+                params: {
+                    start: startLocation,
+                    finish: finishLocation,
+                    mode: selectedRadio
+                }
+            })
+            .then(response => {
+                console.log("Received response:", response.data);
+                const nestedList = response.data;
+                if (nestedList && nestedList.dLatLng) {
+                    console.log("Setting shortestPath and dLatLng with data:", nestedList);
+                    setShortestPath(nestedList.shortestPath);
+                    setDLatLng(nestedList.dLatLng);
+                    setSearchClicked(true);
+                } else {
+                    console.error("Invalid response data:", nestedList);
+                }
+            })
+            .catch(error => {
+                console.log("Error:", error);
+                if (error.response && error.response.data) {
+                    console.log("Error response data:", error.response.data);
+                }
+            });
         }
     };
 
@@ -331,12 +361,14 @@ function KakaoMap({ start, finish }) {
         setSelectedRadio(e.target.value);
         setNodeData(walkData); // 걷기 모드 데이터로 설정
         setLoc(LocListWalk()); // 걷기 모드 건물 리스트로 설정
+        console.log("Walking mode selected, nodeData:", walkData, "loc:", LocListWalk());
     };
 
     const wheelchairMode = (e) => {
         setSelectedRadio(e.target.value);
         setNodeData(wheelData); // 휠체어 모드 데이터로 설정
         setLoc(LocListWheel()); // 휠체어 모드 건물 리스트로 설정
+        console.log("Wheelchair mode selected, nodeData:", wheelData, "loc:", LocListWheel());
     };
 
     const switchStartFinish = () => {
@@ -430,36 +462,7 @@ function KakaoMap({ start, finish }) {
                             {building.id}
                         </option>))}
                 </select>
-                <button className="button-style" onClick={() => {
-                    console.log("Searching path with:", startLocation, finishLocation); // 추가된 로그
-                    axios.get('/map', {
-                        params: {
-                            start: startLocation,
-                            finish: finishLocation,
-                            mode: selectedRadio
-                        }
-                    })
-                        .then(response => {
-                            console.log("Received response:", response.data); // 추가된 로그
-                            const nestedList = response.data;
-                            if (nestedList && nestedList.dLatLng) {
-                                console.log("Setting image, shortestPath and dLatLng with data:", nestedList);
-                                
-                                setShortestPath(nestedList.shortestPath);
-                                
-                                setDLatLng(nestedList.dLatLng)
-                                setSearchClicked(true);
-                            } else {
-                                console.error("Invalid response data:", nestedList);
-                            }
-                        })
-                        .catch(error => {
-                            console.log("Error:", error);
-                            if (error.response && error.response.data) {
-                                console.log("Error response data:", error.response.data); // 에러 로그 추가
-                            }
-                        });
-                }}>경로 탐색</button>
+                <button className="button-style" onClick={handleSearchClick}>경로 탐색</button>
             </div>
             <span>
                 <div id="map" className="map-style"></div>

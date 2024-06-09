@@ -1,36 +1,37 @@
-package com.react.roadmap.function_W;
-import com.react.roadmap.data.Node;
 
+// }
+
+package com.react.roadmap.function_W;
+
+import com.react.roadmap.data.Node;
+import com.react.roadmap.data.Node_W;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.IOException;
+
 @Component
-public class AppRunner_W implements ApplicationRunner {
+public class AppRunner_W {
 
-    private final ResourceLoader resourceLoader;
     private Node[] nodeArr;
+    private Node_W[] nodeArr_W;
 
-
-    @Autowired
-    public AppRunner_W(ResourceLoader resourceLoader) {
-        this.resourceLoader = resourceLoader;
-    }
-
-
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        Resource resource = resourceLoader.getResource("classpath:static/json/node_W.json");
+    public AppRunner_W() {
         ObjectMapper objectMapper = new ObjectMapper();
-        nodeArr = objectMapper.readValue(resource.getInputStream(), Node[].class);
+        try {
+            nodeArr = objectMapper.readValue(new File("src/main/resources/static/json/node.json"), Node[].class);
+            nodeArr_W = objectMapper.readValue(new File("src/main/resources/static/json/node_W.json"), Node_W[].class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Node[] getNodeArr() {
         return nodeArr;
     }
 
+    public Node_W[] getNodeArr_W() {
+        return nodeArr_W;
+    }
 }
