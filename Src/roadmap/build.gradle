@@ -95,7 +95,6 @@
 //     launchScript()
 // }
 
-
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.0.6'
@@ -146,30 +145,32 @@ sourceSets {
     }
 }
 
-processResources { dependsOn "copyReactBuildFiles" }
+processResources {
+    dependsOn "copyReactBuildFiles"
+}
 
 task installReact(type: Exec) {
     workingDir "$frontendDir"
     inputs.dir "$frontendDir"
+    outputs.dir "$frontendDir/node_modules"
     group = BasePlugin.BUILD_GROUP
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-        commandLine "npm.cmd", "audit", "fix"
-        commandLine 'npm.cmd', 'install'
+        commandLine "npm.cmd", "install"
     } else {
-        commandLine "npm", "audit", "fix"
-        commandLine 'npm', 'install'
+        commandLine "npm", "install"
     }
 }
 
 task buildReact(type: Exec) {
     dependsOn "installReact"
     workingDir "$frontendDir"
-    inputs.dir "$frontendDir"
+    inputs.dir "$frontendDir/src"
+    outputs.dir "$frontendDir/build"
     group = BasePlugin.BUILD_GROUP
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-        commandLine "npm.cmd", "run-script", "build"
+        commandLine "npm.cmd", "run", "build"
     } else {
-        commandLine "npm", "run-script", "build"
+        commandLine "npm", "run", "build"
     }
 }
 
@@ -204,4 +205,9 @@ task wheelchairBootJar(type: org.springframework.boot.gradle.tasks.bundling.Boot
 tasks.build {
     dependsOn bootJar
     dependsOn wheelchairBootJar
+}
+
+gradle.buildFinished {
+    // 빌드 후 캐시 디렉토리 정리
+    delete fileTree(dir: 'build-cache', exclude: '**/*.jar')
 }
