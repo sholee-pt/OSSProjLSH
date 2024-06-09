@@ -315,6 +315,20 @@ select option [value = ""][disabled]{
         height: 75px;
     }
 }
+.loading-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px; /* 글자 크기 */
+    color: #333; /* 글자 색깔 */
+    font-weight: bold;
+    z-index: 1000;
+}
 
 .content-wrapper {
     display: flex;

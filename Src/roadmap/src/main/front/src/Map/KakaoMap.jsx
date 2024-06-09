@@ -32,6 +32,7 @@ function KakaoMap({ start, finish }) {
     const [finishMarker, setFinishMarker] = useState(null);
     const [nodeData, setNodeData] = useState(null); // 기본값 없음
     const [loc, setLoc] = useState([]); // 기본값 없음
+    const [isLoading, setIsLoading] = useState(false); // 로딩 상태 관리
 
     const SetStart = (value) => {
         setStartLocation(value);
@@ -219,6 +220,7 @@ function KakaoMap({ start, finish }) {
                 drawPath(dLatLng);
                 createMarker(dLatLng, shortestPath);
                 setSearchClicked(false);
+                setIsLoading(false); // 로딩 상태 해제
             }
         }
     }, [map, searchClicked, dLatLng, shortestPath, createMarker, drawPath]);
@@ -240,6 +242,7 @@ function KakaoMap({ start, finish }) {
             console.log("Searching path with:", startLocation, finishLocation, "mode:", selectedRadio);
 
             deleteLine();
+            setIsLoading(true); // 로딩 상태 시작
 
             axios.get('/map', {
                 params: {
@@ -258,6 +261,7 @@ function KakaoMap({ start, finish }) {
                     setSearchClicked(true);
                 } else {
                     console.error("Invalid response data:", nestedList);
+                    setIsLoading(false); // 로딩 상태 해제
                 }
             })
             .catch(error => {
@@ -265,6 +269,7 @@ function KakaoMap({ start, finish }) {
                 if (error.response && error.response.data) {
                     console.log("Error response data:", error.response.data);
                 }
+                setIsLoading(false); // 로딩 상태 해제
             });
         }
     };
@@ -335,6 +340,7 @@ function KakaoMap({ start, finish }) {
 
     return (
         <div className="map-wrapper">
+            {isLoading && <div className="loading-overlay">최적의 경로를 탐색중입니다...</div>}
             <div className="radio-wrapper">
                 <label className="radio-label">
                     <input
