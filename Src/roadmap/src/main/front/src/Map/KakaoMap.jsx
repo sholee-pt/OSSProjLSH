@@ -95,25 +95,6 @@ function KakaoMap({ start, finish }) {
                         });
                         newMarker.setMap(map);
                         newMarkers.push(newMarker);
-
-                        const imgCode = node + ".jpg";
-                        const infoImg = getImgAdd(imgCode);
-                        const infoContent = `
-                            <div style="padding:5px; z-index:1;">
-                                ${node}<br>
-                                <img src="${infoImg}" width="100" height="100">
-                            </div>`;
-
-                        const infoWindow = new window.kakao.maps.InfoWindow({
-                            content: infoContent,
-                            removable: true
-                        });
-
-                        newiW.push(infoWindow);
-
-                        window.kakao.maps.event.addListener(newMarker, 'click', function () {
-                            infoWindow.open(map, newMarker);
-                        });
                     }
 
                     if (node[0] === 'V') {
@@ -133,79 +114,7 @@ function KakaoMap({ start, finish }) {
                         });
                         newMarker.setMap(map);
                         tempEvMarkers.push(newMarker);
-                    } else if (imgChk(node) === true) {
-                        const camera = "camera.png";
-                        const imgCode = node + ".jpg";
-                        const infoImg = getImgAdd(imgCode);
-
-                        const imageSrc = getImgAdd(camera), 
-                            imageSize = new kakao.maps.Size(32, 35), 
-                            imageOption = { offset: new kakao.maps.Point(14, 20) };
-
-                        const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-                            markerPosition = new window.kakao.maps.LatLng(
-                                parseFloat(dLatLng[i][0]),
-                                parseFloat(dLatLng[i][1])
-                            );
-                        const newMarker = new window.kakao.maps.Marker({
-                            position: markerPosition,
-                            image: markerImage,
-                            clickable: true
-                        });
-
-                        const newInfo = new window.kakao.maps.CustomOverlay({
-                            clickable: false,
-                            map: map,
-                            position: newMarker.getPosition(),
-                            removable: true,
-                            zIndex: 5
-                        });
-
-                        const wrapperDiv = document.createElement('div');
-                        wrapperDiv.classList.add('overlay-wrapper-onlyimg');
-
-                        const barDiv = document.createElement('div');
-                        barDiv.classList.add('overlay-bar');
-
-                        const xmarkDiv = document.createElement('div');
-                        xmarkDiv.classList.add('xmark');
-                        const iElement = document.createElement('i');
-                        iElement.classList.add('fa-solid', 'fa-xmark');
-                        iElement.addEventListener('click', closeOverlay);
-                        xmarkDiv.appendChild(iElement);
-
-                        const imgWrapperDiv = document.createElement('div');
-                        imgWrapperDiv.classList.add('overlay-img-wrapper');
-                        const imgElement = document.createElement('img');
-                        imgElement.src = infoImg;
-                        imgElement.alt = 'Building Image';
-                        imgWrapperDiv.appendChild(imgElement);
-
-                        barDiv.appendChild(xmarkDiv);
-                        wrapperDiv.appendChild(barDiv);
-                        wrapperDiv.appendChild(imgWrapperDiv);
-
-                        newInfo.setContent(wrapperDiv);
-
-                        function closeOverlay() {
-                            if (map) {
-                                if (newInfo.getMap() === null) {
-                                    newInfo.setMap(map, newMarker);
-                                } else {
-                                    newInfo.setMap(null);
-                                }
-                            }
-                        }
-
-                        newInfo.setMap(null);
-                        newiW.push(newInfo);
-
-                        window.kakao.maps.event.addListener(newMarker, 'click', function () {
-                            closeOverlay();
-                        });
-
-                        newMarker.setMap(map);
-                        newMarkers.push(newMarker);
+                   
                     } else {
                         console.log("none");
                     }
