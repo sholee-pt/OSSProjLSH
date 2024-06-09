@@ -71,7 +71,7 @@
 ### 프로젝트 관리문서
 
 1. 보고서 [계획](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_1_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EC%84%9C.md) [중간](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/2_1_OSSProj_10_SOUP_%EC%A4%91%EA%B0%84%EB%B3%B4%EA%B3%A0%EC%84%9C.md) [최종](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/3_1_OSSProj_10_SOUP_%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C.md)
-2. 발표 자료 [계획](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf) [중간](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/2_3_OSSProj_10_SOUP_%EC%A4%91%EA%B0%84%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf) [최종]()
+2. 발표 자료 [계획](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/1_3_OSSProj_10_SOUP_%EC%88%98%ED%96%89%EA%B3%84%ED%9A%8D%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf) [중간](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/2_3_OSSProj_10_SOUP_%EC%A4%91%EA%B0%84%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf) [최종](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/3_2_OSSProj_10_SOUP_%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)
 3. [범위/일정 및 이슈 관리](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_1_OSSProj_10_SOUP_%EB%B2%94%EC%9C%84_%EC%9D%BC%EC%A0%95_%EC%9D%B4%EC%8A%88%EA%B4%80%EB%A6%AC.md)
 4. [회의록](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_2_OSSProj_10_SOUP_%ED%9A%8C%EC%9D%98%EB%A1%9D.md)
 5. [제품의 구성, 배포 및 운영 관련 문서 자료](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/4_3_OSSProj_10_SOUP_%EC%A0%9C%ED%92%88%EA%B5%AC%EC%84%B1%EB%B0%B0%ED%8F%AC%EC%9A%B4%EC%98%81%EC%9E%90%EB%A3%8C.md)
