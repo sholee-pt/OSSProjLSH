@@ -32,6 +32,7 @@ function KakaoMap({ start, finish }) {
     const [finishMarker, setFinishMarker] = useState(null);
     const [nodeData, setNodeData] = useState(null); // 기본값 없음
     const [loc, setLoc] = useState([]); // 기본값 없음
+    const [isLoading, setIsLoading] = useState(false); // 로딩 상태 관리
 
     const SetStart = (value) => {
         setStartLocation(value);
@@ -219,6 +220,7 @@ function KakaoMap({ start, finish }) {
                 drawPath(dLatLng);
                 createMarker(dLatLng, shortestPath);
                 setSearchClicked(false);
+                setIsLoading(false); // 로딩 상태 해제
             }
         }
     }, [map, searchClicked, dLatLng, shortestPath, createMarker, drawPath]);
@@ -238,6 +240,10 @@ function KakaoMap({ start, finish }) {
             window.alert('출발지와 목적지를 설정해주세요.');
         } else {
             console.log("Searching path with:", startLocation, finishLocation, "mode:", selectedRadio);
+
+            deleteLine();
+            setIsLoading(true); // 로딩 상태 시작
+
             axios.get('/map', {
                 params: {
                     start: startLocation,
@@ -255,6 +261,7 @@ function KakaoMap({ start, finish }) {
                     setSearchClicked(true);
                 } else {
                     console.error("Invalid response data:", nestedList);
+                    setIsLoading(false); // 로딩 상태 해제
                 }
             })
             .catch(error => {
@@ -262,6 +269,7 @@ function KakaoMap({ start, finish }) {
                 if (error.response && error.response.data) {
                     console.log("Error response data:", error.response.data);
                 }
+                setIsLoading(false); // 로딩 상태 해제
             });
         }
     };
@@ -270,6 +278,7 @@ function KakaoMap({ start, finish }) {
         setSelectedRadio(e.target.value);
         setNodeData(walkData); // 걷기 모드 데이터로 설정
         setLoc(LocListWalk()); // 걷기 모드 건물 리스트로 설정
+        deleteLine();
         console.log("Walking mode selected, nodeData:", walkData, "loc:", LocListWalk());
     };
 
@@ -277,6 +286,7 @@ function KakaoMap({ start, finish }) {
         setSelectedRadio(e.target.value);
         setNodeData(wheelData); // 휠체어 모드 데이터로 설정
         setLoc(LocListWheel()); // 휠체어 모드 건물 리스트로 설정
+        deleteLine();
         console.log("Wheelchair mode selected, nodeData:", wheelData, "loc:", LocListWheel());
     };
 
@@ -289,6 +299,7 @@ function KakaoMap({ start, finish }) {
     const handleStartChange = (e) => {
         const selectedValue = e.target.value;
         SetStart(selectedValue);
+        deleteLine();
         if (map && startMarker) {
             startMarker.setMap(null);
         }
@@ -309,6 +320,7 @@ function KakaoMap({ start, finish }) {
     const handleFinishChange = (e) => {
         const selectedValue = e.target.value;
         SetFinish(selectedValue);
+        deleteLine();
         if (map && finishMarker) {
             finishMarker.setMap(null);
         }
@@ -328,6 +340,7 @@ function KakaoMap({ start, finish }) {
 
     return (
         <div className="map-wrapper">
+            {isLoading && <div className="loading-overlay">최적의 경로를 탐색중입니다...</div>}
             <div className="radio-wrapper">
                 <label className="radio-label">
                     <input
