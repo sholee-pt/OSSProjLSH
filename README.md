@@ -41,7 +41,7 @@
  -------------------------|------------------------------
 <img width="500" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/building_page.png"> | <img width="500" alt="image" src="https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Doc/ReferenceImages/conv_page.png">
 
- [프로젝트 시연 동영상](https://youtu.be/vWG0bbAXnlQ)
+ [프로젝트 시연 동영상](https://www.youtube.com/watch?v=R1Z8yBF68Tw)
 
  [프로젝트 개발을 위한 소스코드](https://github.com/CSID-DGU/2024-1-OSSProj-SOUP-10/blob/main/Src/Overview.md)
 
