@@ -37,8 +37,8 @@ app.get('/map', (req, res) => {
     }
 
     const locData = JSON.parse(fs.readFileSync(locDataPath, 'utf-8'));
-    const gradlewPath = path.join(projectRoot, 'gradlew');
-    const gradlew = spawn(gradlewPath, ['bootJar', '--stacktrace'], { cwd: projectRoot });
+    const gradlewPath = path.join(projectRoot, 'gradlew.bat');
+    const gradlew = spawn('cmd', ['/c', gradlewPath, 'bootJar', '--stacktrace'], { cwd: projectRoot });
 
     gradlew.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
@@ -63,7 +63,7 @@ app.get('/map', (req, res) => {
         }
 
         const homeDir = os.homedir();
-        const javaPath = path.join(homeDir, '.sdkman/candidates/java/current/bin', 'java');
+        const javaPath = path.join(homeDir, '.sdkman/candidates/java/current/bin', 'java.exe');
         const jarPath = path.join(buildDir, jarFileName);
 
         console.log(`javaPath: ${javaPath}`);
