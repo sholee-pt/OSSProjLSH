@@ -238,6 +238,9 @@ function KakaoMap({ start, finish }) {
             window.alert('출발지와 목적지를 설정해주세요.');
         } else {
             console.log("Searching path with:", startLocation, finishLocation, "mode:", selectedRadio);
+
+            deleteLine();
+
             axios.get('/map', {
                 params: {
                     start: startLocation,
@@ -270,6 +273,7 @@ function KakaoMap({ start, finish }) {
         setSelectedRadio(e.target.value);
         setNodeData(walkData); // 걷기 모드 데이터로 설정
         setLoc(LocListWalk()); // 걷기 모드 건물 리스트로 설정
+        deleteLine();
         console.log("Walking mode selected, nodeData:", walkData, "loc:", LocListWalk());
     };
 
@@ -277,6 +281,7 @@ function KakaoMap({ start, finish }) {
         setSelectedRadio(e.target.value);
         setNodeData(wheelData); // 휠체어 모드 데이터로 설정
         setLoc(LocListWheel()); // 휠체어 모드 건물 리스트로 설정
+        deleteLine();
         console.log("Wheelchair mode selected, nodeData:", wheelData, "loc:", LocListWheel());
     };
 
@@ -289,6 +294,7 @@ function KakaoMap({ start, finish }) {
     const handleStartChange = (e) => {
         const selectedValue = e.target.value;
         SetStart(selectedValue);
+        deleteLine();
         if (map && startMarker) {
             startMarker.setMap(null);
         }
@@ -309,6 +315,7 @@ function KakaoMap({ start, finish }) {
     const handleFinishChange = (e) => {
         const selectedValue = e.target.value;
         SetFinish(selectedValue);
+        deleteLine();
         if (map && finishMarker) {
             finishMarker.setMap(null);
         }
